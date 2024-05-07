@@ -11,7 +11,7 @@ body {
   @apply text-white font-semibold bg-custom-grey rounded-lg border-3 border-custom-black hover:bg-custom-lightgrey hover:border-custom-grey;
 }
 
-.textarea1 {
+.input1 {
   @apply text-white p-2.5 pl-6 font-light bg-custom-blue placeholder-white rounded-full border-3 border-custom-grey outline-none resize-none focus:bg-custom-grey focus:border-custom-blue;
 }
 

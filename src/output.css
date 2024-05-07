@@ -610,6 +610,10 @@ video {
   flex-direction: row;
 }
 
+.flex-col{
+  flex-direction: column;
+}
+
 .items-center{
   align-items: center;
 }
@@ -729,6 +733,14 @@ video {
   padding-top: 1.75rem;
 }
 
+.pb-10{
+  padding-bottom: 2.5rem;
+}
+
+.pt-10{
+  padding-top: 2.5rem;
+}
+
 .text-center{
   text-align: center;
 }
@@ -756,6 +768,11 @@ video {
 .text-xl{
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+
+.text-9xl{
+  font-size: 8rem;
+  line-height: 1;
 }
 
 .font-bold{
@@ -856,7 +873,7 @@ body{
   background-color: rgb(102 102 102 / var(--tw-bg-opacity));
 }
 
-.textarea1{
+.input1{
   resize: none;
   border-radius: 9999px;
   border-width: 3px;
@@ -871,22 +888,22 @@ body{
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.textarea1::-moz-placeholder{
+.input1::-moz-placeholder{
   --tw-placeholder-opacity: 1;
   color: rgb(255 255 255 / var(--tw-placeholder-opacity));
 }
 
-.textarea1::placeholder{
+.input1::placeholder{
   --tw-placeholder-opacity: 1;
   color: rgb(255 255 255 / var(--tw-placeholder-opacity));
 }
 
-.textarea1{
+.input1{
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
 
-.textarea1:focus{
+.input1:focus{
   --tw-border-opacity: 1;
   border-color: rgb(0 117 255 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
