@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-white text-lg text-custom-grey font-body;
+}
+
+.button1 {
+  @apply text-white font-semibold bg-custom-grey rounded-lg border-3 border-custom-black hover:bg-custom-lightgrey hover:border-custom-grey;
+}
+
+.textarea1 {
+  @apply text-white p-2.5 pl-6 font-light bg-custom-blue placeholder-white rounded-full border-3 border-custom-grey outline-none resize-none focus:bg-custom-grey focus:border-custom-blue;
+}
+
+.text-shadow {
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.16);
+}
