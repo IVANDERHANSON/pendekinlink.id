@@ -40,7 +40,9 @@ class CustomizedLinkController extends Controller
             'Source' => $request->Source
         ]);
 
-        return redirect('/create');
+        $link = $request->Link;
+        $message = "Link kamu telah berhasil dikustom: https://pendekinlink.id/$link";
+        return redirect('/')->with('success', $message);
     }
 
     /**
@@ -76,7 +78,10 @@ class CustomizedLinkController extends Controller
     }
     
     public function redirect($link) {
-        $Link = CustomizedLink::where('Link', $link)->first();
-        return redirect($Link->Source);
+        $Link = CustomizedLink::where('Link', $link);
+        if ($Link->exists()) {
+            return redirect($Link->first()->Source);
+        }
+        return abort(404);
     }
 }
