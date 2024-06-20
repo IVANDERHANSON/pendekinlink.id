@@ -182,7 +182,7 @@
 
         <div class="flex pt-14">
             <button class="button1 shadow-custom1 h-20 w-[600px]" type="submit">
-                Pendekin link!
+                Pendekin banyak link!
             </button>
             </div>
       </div>
