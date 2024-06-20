@@ -192,19 +192,19 @@
     <div class="flex-col flex min-h-screen justify-center items-center">
       <div class="">
         <p class="text-xl w-fit mb-3.5"><span class="font-bold">Klik link</span> kamu <span class="font-bold">untuk copy</span> linknya!</p>
-        <p class="text-xl font-semibold text-custom-lightgrey text-shadow3 mb-1.5 overflow-hidden">linkpanjang.com/contohlinksebelumpendekgantiya</p>
+        <p class="text-xl font-semibold text-custom-lightgrey mb-1.5 overflow-hidden">linkpanjang.com/contohlinksebelumpendekgantiya</p>
         <a class="text-2xl font-bold underline text-custom-blue text-shadow3 hover:opacity-80" href="">pendekinlink.id/contohlinkpendekgantiya</a>
 
         <div class="h-[2px] bg-custom-whitegrey w-full my-7"></div>
         
         <p class="text-xl w-fit mb-3.5"><span class="font-bold">Klik link</span> kamu <span class="font-bold">untuk copy</span> linknya!</p>
-        <p class="text-xl font-semibold text-custom-lightgrey text-shadow3 mb-1.5 overflow-hidden">linkpanjang.com/contohlinksebelumpendekgantiya</p>
+        <p class="text-xl font-semibold text-custom-lightgrey mb-1.5 overflow-hidden">linkpanjang.com/contohlinksebelumpendekgantiya</p>
         <a class="text-2xl font-bold underline text-custom-blue text-shadow3 hover:opacity-80" href="">pendekinlink.id/contohlinkpendekgantiya</a>
 
         <div class="h-[2px] bg-custom-whitegrey w-full my-7"></div>
 
         <p class="text-xl w-fit mb-3.5"><span class="font-bold">Klik link</span> kamu <span class="font-bold">untuk copy</span> linknya!</p>
-        <p class="text-xl font-semibold text-custom-lightgrey text-shadow3 mb-1.5 overflow-hidden">linkpanjang.com/contohlinksebelumpendekgantiya</p>
+        <p class="text-xl font-semibold text-custom-lightgrey mb-1.5 overflow-hidden">linkpanjang.com/contohlinksebelumpendekgantiya</p>
         <a class="text-2xl font-bold underline text-custom-blue text-shadow3 hover:opacity-80" href="">pendekinlink.id/contohlinkpendekgantiya</a>
         <div>
           <button class="mt-7 button1 shadow-custom1 h-20 w-full">
