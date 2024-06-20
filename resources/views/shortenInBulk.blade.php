@@ -48,6 +48,7 @@
       </div>
     </div>
 
+    <!-- input total link -->
     <div class="flex min-h-screen justify-center items-center">
       <div class="">
         <p class="text-xl mb-5">Berapa <span class="font-bold">total link </span>yang<br> mau dipendekin?</p>
@@ -69,6 +70,125 @@
       </div>
     </div>
 
+    <!-- input link detail -->
+    <div class="flex-col flex min-h-screen justify-center items-center">
+      <div class="">
+      <p class="text-xl w-fit mb-3.5">Masukin <span class="font-bold">link awal</span> sama<span class="font-bold"> link pendek</span> kamu!</p>
+      <form action="/store" method="POST">
+            @csrf
+            <div class="flex-col">
+            <input
+                class="input1 shadow-custom1 w-full"
+                placeholder="masukin link belum keren"
+                name="Source"
+                value="{{ old('Source') }}"
+            />
+            @error('Source')
+                <p class="font-semibold text-red-500 pl-5">
+                    {{ $message }}
+                </p>
+            @enderror
+            </div>
+            <!-- <textarea rows="1" class="w-760px text-white p-3 pl-8 font-light bg-custom-blue placeholder-white rounded-full border-4 border-custom-grey outline-none resize-none focus:bg-custom-grey focus:border-custom-blue" placeholder="Masukin link belum keren"></textarea> -->
+            <div class="flex items-start justify-between gap-4 pt-5">
+              <p class="text-xl font-bold pt-3.5">pendekinlink.id/</p>
+              <div class="flex-col w-full">
+                <input
+                    class="input1 shadow-custom1 w-full"
+                    placeholder="masukin belakang link keren"
+                    name="Link"
+                    value="{{ old('Link') }}"
+                />
+                @error('Link')
+                    <p class="font-semibold text-red-500 pl-5">
+                        {{ $message }}
+                    </p>
+                @enderror
+              </div>
+            </div>
+        </form>
+        <div class="h-[2px] bg-custom-whitegrey w-full mt-7 mb-14"></div>
+
+        <p class="text-xl w-fit mb-3.5">Masukin <span class="font-bold">link awal</span> sama<span class="font-bold"> link pendek</span> kamu!</p>
+      <form action="/store" method="POST">
+            @csrf
+            <div class="flex-col">
+            <input
+                class="input1 shadow-custom1 w-full"
+                placeholder="masukin link belum keren"
+                name="Source"
+                value="{{ old('Source') }}"
+            />
+            @error('Source')
+                <p class="font-semibold text-red-500 pl-5">
+                    {{ $message }}
+                </p>
+            @enderror
+            </div>
+            <!-- <textarea rows="1" class="w-760px text-white p-3 pl-8 font-light bg-custom-blue placeholder-white rounded-full border-4 border-custom-grey outline-none resize-none focus:bg-custom-grey focus:border-custom-blue" placeholder="Masukin link belum keren"></textarea> -->
+            <div class="flex items-start justify-between gap-4 pt-5">
+              <p class="text-xl font-bold pt-3.5">pendekinlink.id/</p>
+              <div class="flex-col w-full">
+                <input
+                    class="input1 shadow-custom1 w-full"
+                    placeholder="masukin belakang link keren"
+                    name="Link"
+                    value="{{ old('Link') }}"
+                />
+                @error('Link')
+                    <p class="font-semibold text-red-500 pl-5">
+                        {{ $message }}
+                    </p>
+                @enderror
+              </div>
+            </div>
+        </form>
+        <div class="h-[2px] bg-custom-whitegrey w-full mt-7 mb-14"></div>
+
+        <p class="text-xl w-fit mb-3.5">Masukin <span class="font-bold">link awal</span> sama<span class="font-bold"> link pendek</span> kamu!</p>
+      <form action="/store" method="POST">
+            @csrf
+            <div class="flex-col">
+            <input
+                class="input1 shadow-custom1 w-full"
+                placeholder="masukin link belum keren"
+                name="Source"
+                value="{{ old('Source') }}"
+            />
+            @error('Source')
+                <p class="font-semibold text-red-500 pl-5">
+                    {{ $message }}
+                </p>
+            @enderror
+            </div>
+            <!-- <textarea rows="1" class="w-760px text-white p-3 pl-8 font-light bg-custom-blue placeholder-white rounded-full border-4 border-custom-grey outline-none resize-none focus:bg-custom-grey focus:border-custom-blue" placeholder="Masukin link belum keren"></textarea> -->
+            <div class="flex items-start justify-between gap-4 pt-5">
+              <p class="text-xl font-bold pt-3.5">pendekinlink.id/</p>
+              <div class="flex-col w-full">
+                <input
+                    class="input1 shadow-custom1 w-full"
+                    placeholder="masukin belakang link keren"
+                    name="Link"
+                    value="{{ old('Link') }}"
+                />
+                @error('Link')
+                    <p class="font-semibold text-red-500 pl-5">
+                        {{ $message }}
+                    </p>
+                @enderror
+              </div>
+            </div>
+        </form>
+
+        <div class="flex pt-14">
+            <button class="button1 shadow-custom1 h-20 w-[600px]" type="submit">
+                Pendekin link!
+            </button>
+            </div>
+      </div>
+    </div>
+
+    <!-- show link -->
     <div class="flex-col flex min-h-screen justify-center items-center">
       <div class="">
         <p class="text-xl w-fit mb-3.5"><span class="font-bold">Klik link</span> kamu <span class="font-bold">untuk copy</span> linknya!</p>
