@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../src/output.css" />
     <title>pendekinlink.id | Register</title>
     <link rel="shortcut icon" href="assets/Logo.jpeg" type="image/x-icon">
+    @vite('resources/css/app.css')
   </head>
   <body>
     <!-- navbar -->
@@ -56,37 +57,38 @@
             <div class="max-w-[440px] flex-row">
             <input
                 type="email"
-                class="input1 w-full shadow-custom1"
+                class="input1 w-full shadow-custom1 min-[560px]:w-[440px]"
                 placeholder="masukin email kamu"
                 name="email"
                 value="{{ old('email') }}"
             />
+            @error('email')
+                <p class="font-semibold text-red-500 w-full ml-5">
+                    {{ $message }}
+                </p>
+            @enderror
             <input
                 type="password"
-                class="input1 mt-7 w-full shadow-custom1"
+                class="input1 mt-7 w-full shadow-custom1 min-[560px]:w-[440px]"
                 placeholder="masukin password kamu"
                 name="password"
                 value="{{ old('password') }}"
             />
+            @error('password')
+                <p class="font-semibold text-red-500 w-full ml-5">
+                    {{ $message }}
+                </p>
+            @enderror
             <input
                 type="password"
-                class="input1 mt-7 w-full shadow-custom1"
+                class="input1 mt-7 w-full shadow-custom1 min-[560px]:w-[440px]"
                 placeholder="masukin lagi password kamu"
                 name="password_confirmation"
                 value="{{ old('password_confirmation') }}"
             />
-            @error('email')
-                <p class="mt-3.5 text-center font-semibold text-red-500">
-                    {{ $message }}
-                </p>
-            @enderror
-            @error('password')
-                <p class="mt-3.5 text-center font-semibold text-red-500">
-                    {{ $message }}
-                </p>
-            @enderror
+            
             @error('password_confirmation')
-                <p class="mt-3.5 text-center font-semibold text-red-500">
+                <p class="font-semibold text-red-500 w-full ml-5">
                     {{ $message }}
                 </p>
             @enderror

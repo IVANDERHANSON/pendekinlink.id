@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="src/output.css" />
     <title>pendekinlink.id</title>
     <link rel="shortcut icon" href="assets/Logo.jpeg" type="image/x-icon">
+    @vite('resources/css/app.css')
   </head>
   <body>
     <!-- <div class="absolute w-full px-12 py-4 shadow-nav">
@@ -76,34 +77,38 @@
         </div>
         <form action="/store" method="POST">
             @csrf
-            <div class="flex">
+            <div class="flex-col">
             <input
                 class="input1 shadow-custom1 w-full"
                 placeholder="masukin link belum keren"
                 name="Source"
                 value="{{ old('Source') }}"
             />
+            @error('Source')
+                <p class="font-semibold text-red-500 pl-5">
+                    {{ $message }}
+                </p>
+            @enderror
             </div>
             <!-- <textarea rows="1" class="w-760px text-white p-3 pl-8 font-light bg-custom-blue placeholder-white rounded-full border-4 border-custom-grey outline-none resize-none focus:bg-custom-grey focus:border-custom-blue" placeholder="Masukin link belum keren"></textarea> -->
-            <div class="flex items-center justify-between gap-4 pt-7">
-            <p class="text-xl font-bold">pendekinlink.id/</p>
-            <input
-                class="input1 shadow-custom1 w-full"
-                placeholder="masukin belakang link keren"
-                name="Link"
-                value="{{ old('Link') }}"
-            />
+            <div class="flex items-start justify-between gap-4 pt-7">
+              <p class="text-xl font-bold pt-3.5">pendekinlink.id/</p>
+              <div class="flex-col w-full">
+                <input
+                    class="input1 shadow-custom1 w-full"
+                    placeholder="masukin belakang link keren"
+                    name="Link"
+                    value="{{ old('Link') }}"
+                />
+                @error('Link')
+                    <p class="font-semibold text-red-500 pl-5">
+                        {{ $message }}
+                    </p>
+                @enderror
+              </div>
             </div>
-            @error('Source')
-                <p class="mt-3.5 text-center font-semibold text-red-500">
-                    {{ $message }}
-                </p>
-            @enderror
-            @error('Link')
-                <p class="mt-3.5 text-center font-semibold text-red-500">
-                    {{ $message }}
-                </p>
-            @enderror
+            
+            
             <div class="flex pt-14">
             <button class="button1 shadow-custom1 h-20 w-full" type="submit">
                 Pendekin link!
@@ -116,6 +121,18 @@
             >terms of service</a
           >
           kita yaa
+        </div>
+      </div>
+    </div>
+
+    <div class="h-screen flex justify-center items-center">
+      <div class="">
+        <p class="text-xl w-fit mb-3.5"><span class="font-bold">Klik link</span> kamu <span class="font-bold">untuk copy</span> linknya!</p>
+        <a class="text-2xl font-bold underline text-custom-blue text-shadow3 hover:opacity-80" href="">pendekinlink.id/contohlinkpendekgantiya</a>
+        <div>
+          <button class="mt-7 button1 shadow-custom1 h-20 w-full">
+            Balik pendekin link!
+          </button>
         </div>
       </div>
     </div>

@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../src/output.css" />
     <title>pendekinlink.id | 404</title>
     <link rel="shortcut icon" href="assets/Logo.jpeg" type="image/x-icon">
+    @vite('resources/css/app.css')
   </head>
   <body>
     <div class="flex min-h-screen items-center justify-evenly">
