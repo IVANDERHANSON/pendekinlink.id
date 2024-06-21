@@ -7,6 +7,14 @@
     <title>pendekinlink.id</title>
     <link rel="shortcut icon" href="assets/Logo.jpeg" type="image/x-icon">
     @vite('resources/css/app.css')
+    <style>
+.custom-arrow {
+  appearance: none;
+  background-image: url('{{ asset('/assets/chevron-down.svg') }}');
+}
+</style>
+<!-- feathericons.com -->
+<script src="https://unpkg.com/feather-icons"></script>
   </head>
   <body>
     <!-- <div class="absolute w-full px-12 py-4 shadow-nav">
@@ -92,33 +100,16 @@
             <!-- history cards -->
              <div class="flex flex-col w-full mt-4">
                 <div class="bg-red-500 w-full">
-                    <div class="flex flex-row w-full justify-between">
-                        <p class="text-xl w-fit mb-3.5"><span class="font-bold">Klik link</span> kamu <span class="font-bold">untuk copy</span> linknya!</p>
-                        
-                        <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Dropdown button <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                        </svg>
-                        </button>
-
-                        <!-- Dropdown menu -->
-                        <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
-                            <li>
-                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
-                            </li>
-                            <li>
-                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
-                            </li>
-                            <li>
-                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
-                            </li>
-                            <li>
-                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
-                            </li>
-                            </ul>
-                        </div>
-
-                    </div>
+                <div class="relative">
+        <!-- Dropdown button -->
+        <button id="dropdownButton" class="flex flex-row justify-center items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded shadow">Select Option <i data-feather="chevron-down" class="text-custom-white"></i></button>
+        <!-- Dropdown list -->
+        <ul id="dropdownList" class="absolute hidden bg-white border rounded shadow mt-1 w-48">
+            <li class="py-2 px-4 hover:bg-blue-100 cursor-pointer">Option 1</li>
+            <li class="py-2 px-4 hover:bg-blue-100 cursor-pointer">Option 2</li>
+            <li class="py-2 px-4 hover:bg-blue-100 cursor-pointer">Option 3</li>
+        </ul>
+    </div>
                     
                     <p class="text-xl font-semibold text-custom-lightgrey mb-1.5 overflow-hidden">linkpanjang.com/contohlinksebelumpendekgantiya</p>
                     <a class="text-2xl font-bold underline text-custom-blue text-shadow3 hover:opacity-80" href="">pendekinlink.id/contohlinkpendekgantiya</a>
@@ -204,5 +195,27 @@ Berawal dari visi sekelompok anak muda kreatif, pendekinlink.id menawarkan fitur
             alert("{{ session('success') }}");
         </script>
     @endif
+
+    <script>
+        // Get dropdown elements
+        const dropdownButton = document.getElementById('dropdownButton');
+        const dropdownList = document.getElementById('dropdownList');
+
+        // Toggle dropdown visibility
+        dropdownButton.addEventListener('click', () => {
+            dropdownList.classList.toggle('hidden');
+        });
+
+        // Hide dropdown on outside click
+        document.addEventListener('click', (e) => {
+            if (!dropdownButton.contains(e.target)) {
+                dropdownList.classList.add('hidden');
+            }
+        });
+    </script>
+    <!-- feathericons.com -->
+    <script>
+        feather.replace()
+    </script>
   </body>
 </html>
