@@ -123,7 +123,7 @@
               </div>
             </div>
         </form>
-        <div class="h-[2px] bg-custom-whitegrey w-full mt-7 mb-14"></div>
+        <div class="h-[2px] bg-custom-whitegrey w-full my-12"></div>
 
         <p class="text-xl w-fit mb-3.5">Masukin <span class="font-bold">link awal</span> sama<span class="font-bold"> link pendek</span> kamu!</p>
       <form action="/store" method="POST">
@@ -159,7 +159,7 @@
               </div>
             </div>
         </form>
-        <div class="h-[2px] bg-custom-whitegrey w-full mt-7 mb-14"></div>
+        <div class="h-[2px] bg-custom-whitegrey w-full my-12"></div>
 
         <p class="text-xl w-fit mb-3.5">Masukin <span class="font-bold">link awal</span> sama<span class="font-bold"> link pendek</span> kamu!</p>
       <form action="/store" method="POST">
@@ -211,19 +211,19 @@
         <p class="text-xl font-semibold text-custom-lightgrey mb-1.5 overflow-hidden">linkpanjang.com/contohlinksebelumpendekgantiya</p>
         <a class="text-2xl font-bold underline text-custom-blue text-shadow3 hover:opacity-80" href="">pendekinlink.id/contohlinkpendekgantiya</a>
 
-        <div class="h-[2px] bg-custom-whitegrey w-full my-7"></div>
+        <div class="h-[2px] bg-custom-whitegrey w-full my-8"></div>
         
         <p class="text-xl w-fit mb-3.5"><span class="font-bold">Klik link</span> kamu <span class="font-bold">untuk copy</span> linknya!</p>
         <p class="text-xl font-semibold text-custom-lightgrey mb-1.5 overflow-hidden">linkpanjang.com/contohlinksebelumpendekgantiya</p>
         <a class="text-2xl font-bold underline text-custom-blue text-shadow3 hover:opacity-80" href="">pendekinlink.id/contohlinkpendekgantiya</a>
 
-        <div class="h-[2px] bg-custom-whitegrey w-full my-7"></div>
+        <div class="h-[2px] bg-custom-whitegrey w-full my-8"></div>
 
         <p class="text-xl w-fit mb-3.5"><span class="font-bold">Klik link</span> kamu <span class="font-bold">untuk copy</span> linknya!</p>
         <p class="text-xl font-semibold text-custom-lightgrey mb-1.5 overflow-hidden">linkpanjang.com/contohlinksebelumpendekgantiya</p>
         <a class="text-2xl font-bold underline text-custom-blue text-shadow3 hover:opacity-80" href="">pendekinlink.id/contohlinkpendekgantiya</a>
         <div>
-          <button class="mt-7 button1 shadow-custom1 h-20 w-full">
+          <button class="mt-11 button1 shadow-custom1 h-20 w-full">
             Balik pendekin link!
           </button>
         </div>
@@ -258,6 +258,10 @@ Berawal dari visi sekelompok anak muda kreatif, Pendekinlink.id menawarkan fitur
             class="input2 mt-7 h-40 w-full shadow-custom2"
             placeholder="masukin pesan kamu"
           ></textarea>
+
+          <button class="button2 shadow-custom2 h-20 w-full mt-5 " type="submit">
+                Kirim pesan!
+            </button>
         </div>
       </div>
 
