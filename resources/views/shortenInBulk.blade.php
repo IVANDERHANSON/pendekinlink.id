@@ -37,14 +37,30 @@
           <li>
             <a href="" class="hover:text-custom-blue">Pendekin banyak link</a>
           </li>
-          <li><p class="cursor-default text-custom-lightgrey">Riwayat</p></li>
-          <li><a href="" class="hover:text-custom-blue">Riwayat</a></li>
+          @if (Auth::user())
+            <li><a href="" class="hover:text-custom-blue">Riwayat</a></li>
+          @else
+            <li><p class="cursor-default text-custom-lightgrey">Riwayat</p></li>
+          @endif
         </ul>
-        <button
-          class="flex items-center rounded-lg border-3 border-custom-black bg-custom-grey px-8 py-3 font-medium hover:bg-custom-blue"
-        >
-          Masuk
-        </button>
+        @if (Auth::user())
+            <form method="POST" action="{{ route('logout') }}" id="logoutForm">
+                @csrf
+            </form>
+            <button
+            class="flex items-center rounded-lg border-3 border-custom-black bg-custom-grey px-8 py-3 font-medium hover:bg-custom-blue"
+            id="logout"
+            >
+            Keluar
+            </button>
+        @else
+            <button
+            class="flex items-center rounded-lg border-3 border-custom-black bg-custom-grey px-8 py-3 font-medium hover:bg-custom-blue"
+            id="login"
+            >
+            Masuk
+            </button>
+        @endif
       </div>
     </div>
 
@@ -267,5 +283,19 @@ Berawal dari visi sekelompok anak muda kreatif, Pendekinlink.id menawarkan fitur
       </div>
     </div>
     
+    @if (Auth::user())
+        <script>
+            document.getElementById('logout').addEventListener('click', function() {
+                document.getElementById('logoutForm').submit();
+            });
+        </script>
+    @else
+        <script>
+            const login = document.getElementById('login');
+            login.addEventListener('click', function() {
+                window.location.href = '{{ route('login') }}';
+            });
+        </script>
+    @endif
   </body>
 </html>

@@ -66,75 +66,66 @@
     </div>
 
     <div class="flex min-h-screen items-center justify-evenly">
-      <div class="mt-12 h-fit flex-row justify-center">
-        <div class="text-shadow1 pb-14 text-6xl font-semibold">
-          <p class="-mb-2 text-custom-blue">
-            Pendekin<span class="text-custom-grey">,</span>
-          </p>
-          <p class="-mb-2 text-custom-blue">kustomin</p>
-          <p class="-mb-2">link kamu</p>
-          <p>jadi <span class="text-custom-blue">gampang</span>!</p>
+        <div class="flex flex-col items-center ">
+            Riwayat kamu masih kosong :(<br><div><a class="font-bold underline" href="">pendekin link</a> yuk! </div>
         </div>
-        <form action="/store" method="POST">
-            @csrf
-            <div class="flex-col">
-            <input
-                class="input1 shadow-custom1 w-full"
-                placeholder="masukin link belum keren"
-                name="Source"
-                value="{{ old('Source') }}"
-            />
-            @error('Source')
-                <p class="font-semibold text-red-500 pl-5">
-                    {{ $message }}
-                </p>
-            @enderror
-            </div>
-            <!-- <textarea rows="1" class="w-760px text-white p-3 pl-8 font-light bg-custom-blue placeholder-white rounded-full border-4 border-custom-grey outline-none resize-none focus:bg-custom-grey focus:border-custom-blue" placeholder="Masukin link belum keren"></textarea> -->
-            <div class="flex items-start justify-between gap-4 pt-7">
-              <p class="text-xl font-bold pt-3.5">pendekinlink.id/</p>
-              <div class="flex-col w-full">
-                <input
-                    class="input1 shadow-custom1 w-full"
-                    placeholder="masukin belakang link keren"
-                    name="Link"
-                    value="{{ old('Link') }}"
-                />
-                @error('Link')
-                    <p class="font-semibold text-red-500 pl-5">
-                        {{ $message }}
-                    </p>
-                @enderror
-              </div>
-            </div>
-            
-            
-            <div class="flex pt-14">
-            <button class="button1 shadow-custom1 h-20 w-full" type="submit">
-                Pendekin link!
-            </button>
-            </div>
-        </form>
-        <div class="w-full pt-14 text-center">
-          Kalau kamu pake pendekinlink.id, kamu setuju sama
-          <a href="" class="font-bold underline hover:text-custom-lightgrey"
-            >terms of service</a
-          >
-          kita yaa
-        </div>
-      </div>
     </div>
 
-    <div class="h-screen flex justify-center items-center">
-      <div class="">
-        <p class="text-xl w-fit mb-3.5"><span class="font-bold">Klik link</span> kamu <span class="font-bold">untuk copy</span> linknya!</p>
-        <a class="text-2xl font-bold underline text-custom-blue text-shadow3 hover:opacity-80" href="">pendekinlink.id/contohlinkpendekgantiya</a>
-        <div>
-          <button class="mt-7 button1 shadow-custom1 h-20 w-full">
-            Balik pendekin link!
-          </button>
+    <div  class="flex min-h-screen items-center justify-evenly">
+        <div class="flex flex-col items-center">
+            <!-- category -->
+            <div class="flex w-[45vw] justify-between gap-4">
+                <div class="w-[42.5vw] overflow-x-auto whitespace-nowrap">
+                    <ul class="flex flex-row text-nowrap gap-4">
+                        <li class="minibutton1">All</li>
+                        <li class="minibutton1">category 1</li>
+                        <li class="minibutton1">category 2</li>
+                        <li class="minibutton1">category 3</li>
+                        <li class="minibutton1">category 3</li>
+                        <li class="minibutton1">category 3</li>
+
+                        <li class="minibutton1">category 3</li>
+                    </ul>
+                </div>
+                <button class="rounded-lg text-3xl border-3 border-custom-black font-semibold text-custom-white hover:border-custom-grey hover:bg-opacity-90 h-[2.5vw] w-[2.5vw] bg-custom-blue">+</button>
+            </div>
+            <!-- history cards -->
+             <div class="flex flex-col w-full mt-4">
+                <div class="bg-red-500 w-full">
+                    <div class="flex flex-row w-full justify-between">
+                        <p class="text-xl w-fit mb-3.5"><span class="font-bold">Klik link</span> kamu <span class="font-bold">untuk copy</span> linknya!</p>
+                        
+                        <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Dropdown button <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                        </svg>
+                        </button>
+
+                        <!-- Dropdown menu -->
+                        <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
+                            </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    
+                    <p class="text-xl font-semibold text-custom-lightgrey mb-1.5 overflow-hidden">linkpanjang.com/contohlinksebelumpendekgantiya</p>
+                    <a class="text-2xl font-bold underline text-custom-blue text-shadow3 hover:opacity-80" href="">pendekinlink.id/contohlinkpendekgantiya</a>
+                </div>
+                <div class="h-[2px] bg-custom-whitegrey w-full my-7"></div>
+             </div>
         </div>
-      </div>
     </div>
 
     <!-- footer -->

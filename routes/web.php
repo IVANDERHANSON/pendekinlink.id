@@ -23,6 +23,11 @@ Route::get('/bulk-shorten', function () {
     return view('shortenInBulk');
 });
 
+Route::get('/history', function () {
+    return view('history');
+});
+
+
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');

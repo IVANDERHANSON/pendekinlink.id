@@ -11,6 +11,14 @@ body {
     @apply rounded-lg border-3 border-custom-black bg-custom-grey font-semibold text-custom-white hover:border-custom-grey hover:bg-custom-lightgrey;
 }
 
+.button2 {
+    @apply rounded-lg border-3 border-custom-whitegrey bg-custom-white font-semibold text-custom-black hover:border-custom-white hover:bg-custom-whitegrey;
+}
+
+.minibutton1 {
+    @apply bg-custom-grey border-3 border-custom-black text-custom-white rounded-full px-4 h-[2.5vw] items-center justify-center flex hover:bg-custom-lightgrey hover:border-custom-grey;
+}
+
 .input1 {
     @apply h-14 resize-none rounded-full border-3 border-custom-black bg-custom-blue p-2.5 pl-5 font-normal text-custom-white placeholder-custom-white outline-none focus:border-custom-blue focus:bg-custom-grey;
 }
