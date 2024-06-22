@@ -74,7 +74,8 @@
     </div>
 
     <div class="flex flex-col min-h-screen items-center justify-evenly">
-      <div>
+      <form action="/store-category" method="POST">
+        @csrf
       <p class="text-xl w-full"><span class="font-bold">Kategori apa</span> yang mau ditambah?</p>
 
       <div class="flex items-start justify-between pt-3.5">
@@ -82,10 +83,10 @@
                 <input
                     class="input1 shadow-custom1 w-full"
                     placeholder="masukin kategori baru"
-                    name="Link"
-                    value="{{ old('Link') }}"
+                    name="CategoryName"
+                    value="{{ old('CategoryName') }}"
                 />
-                @error('Link')
+                @error('CategoryName')
                     <p class="font-semibold text-red-600 pl-5">
                         {{ $message }}
                     </p>
@@ -101,11 +102,11 @@
       
         <div class="w-full pt-14 text-center">
           Gajadi tambah kategori?
-          <a href="{{ route('register') }}" class="font-bold underline hover:text-custom-lightgrey"
+          <a href="/history" class="font-bold underline hover:text-custom-lightgrey"
             >Balik history yuk</a
           >!
         </div>
-      </div>
+      </form>
     </div>
     
     @if (Auth::user())

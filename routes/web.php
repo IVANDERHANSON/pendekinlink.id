@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/bulk-shorten', function () {
+Route::get('/shorten-in-bulk', function () {
     return view('shortenInBulk');
 });
 
@@ -39,6 +39,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/history', [CustomizedLinkController::class, 'getHistory']);
     Route::get('/edit-link/{id}', [CustomizedLinkController::class, 'getEditLink']);
     Route::post('/update-link/{id}', [CustomizedLinkController::class, 'updateLink']);
+    Route::get('/add-category', [CustomizedLinkController::class, 'getAddCategory']);
+    Route::post('/store-category', [CustomizedLinkController::class, 'storeCategory']);
 });
 
 require __DIR__.'/auth.php';

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CustomizedLink;
 use App\Http\Requests\StoreCustomizedLinkRequest;
 use App\Http\Requests\UpdateCustomizedLinkRequest;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -43,7 +44,12 @@ class CustomizedLinkController extends Controller
     public function redirect($link) {
         $Link = CustomizedLink::where('Link', $link);
         if ($Link->exists()) {
-            return redirect($Link->first()->Source);
+            $customizedLink = $Link->first();
+            $totalVisited = $customizedLink->TotalVisited+1;
+            $customizedLink->update([
+                'TotalVisited' => $totalVisited
+            ]);
+            return redirect($customizedLink->Source);
         }
         return abort(404);
     }
@@ -91,5 +97,22 @@ class CustomizedLinkController extends Controller
         ]);
 
         return redirect('/history');
+    }
+
+    public function getAddCategory() {
+        return view('addCategory');
+    }
+
+    public function storeCategory(Request $request) {
+        $request->validate([
+            'CategoryName' => ['required']
+        ]);
+
+        Category::create([
+            'Name' => $request->CategoryName,
+            'CreatedBy' => auth()->user()->id
+        ]);
+
+        return view('/history');
     }
 }

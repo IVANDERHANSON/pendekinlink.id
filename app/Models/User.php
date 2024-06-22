@@ -45,6 +45,11 @@ class User extends Authenticatable
 
     public function customizedLinks(): HasMany
     {
-        return $this->hasMany(User::class, 'CreatedBy');
+        return $this->hasMany(CustomizedLink::class, 'CreatedBy');
+    }
+
+    public function categories(): HasMany
+    {
+        return $this->hasMany(Category::class, 'CreatedBy');
     }
 }

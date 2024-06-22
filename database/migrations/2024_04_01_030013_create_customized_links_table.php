@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('Link');
             $table->string('Source');
+            $table->unsignedBigInteger('TotalVisited')->default(0);
             $table->foreignId('CreatedBy')->nullable()->references('id')->on('users')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('CategoryId')->nullable()->references('id')->on('categories')->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
         });
     }

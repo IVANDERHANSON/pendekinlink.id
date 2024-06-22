@@ -13,11 +13,18 @@ class CustomizedLink extends Model
     protected $fillable = [
         'Link',
         'Source',
-        'CreatedBy'
+        'TotalVisited',
+        'CreatedBy',
+        'CategoryId'
     ];
 
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'CreatedBy');
+    }
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class, 'CategoryId');
     }
 }
