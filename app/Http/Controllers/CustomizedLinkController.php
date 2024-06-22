@@ -23,10 +23,18 @@ class CustomizedLinkController extends Controller
             $source = 'https://' . $source;
         }
 
-        CustomizedLink::create([
-            'Link' => $request->Link,
-            'Source' => $source
-        ]);
+        if (auth()->user()) {
+            CustomizedLink::create([
+                'Link' => $request->Link,
+                'Source' => $source,
+                'CreatedBy' => auth()->user()->id
+            ]);
+        } else {
+            CustomizedLink::create([
+                'Link' => $request->Link,
+                'Source' => $source
+            ]);
+        }
 
         $link = 'https://pendekinlink.id/'.$request->Link;
         return redirect('/')->with('success', $link);

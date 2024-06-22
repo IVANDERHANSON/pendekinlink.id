@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('Link');
             $table->string('Source');
+            $table->foreignId('CreatedBy')->nullable()->references('id')->on('users')->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
         });
     }
