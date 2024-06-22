@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomizedLinkController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -39,8 +40,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/history', [CustomizedLinkController::class, 'getHistory']);
     Route::get('/edit-link/{id}', [CustomizedLinkController::class, 'getEditLink']);
     Route::post('/update-link/{id}', [CustomizedLinkController::class, 'updateLink']);
-    Route::get('/add-category', [CustomizedLinkController::class, 'getAddCategory']);
-    Route::post('/store-category', [CustomizedLinkController::class, 'storeCategory']);
+    
+    Route::get('/add-category', [CategoryController::class, 'getAddCategory']);
+    Route::post('/store-category', [CategoryController::class, 'storeCategory']);
 });
 
 require __DIR__.'/auth.php';

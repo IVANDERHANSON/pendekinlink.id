@@ -98,21 +98,4 @@ class CustomizedLinkController extends Controller
 
         return redirect('/history');
     }
-
-    public function getAddCategory() {
-        return view('addCategory');
-    }
-
-    public function storeCategory(Request $request) {
-        $request->validate([
-            'CategoryName' => ['required']
-        ]);
-
-        Category::create([
-            'Name' => $request->CategoryName,
-            'CreatedBy' => auth()->user()->id
-        ]);
-
-        return view('/history');
-    }
 }
