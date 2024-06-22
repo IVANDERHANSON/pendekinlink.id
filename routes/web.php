@@ -46,3 +46,4 @@ require __DIR__.'/auth.php';
 
 Route::post('/store', [CustomizedLinkController::class, 'store']);
 Route::get('/{link}', [CustomizedLinkController::class, 'redirect']);
+Route::post('/generate-random-link', [CustomizedLinkController::class, 'generateRandomLink']);

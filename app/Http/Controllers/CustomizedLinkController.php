@@ -6,75 +6,30 @@ use App\Models\CustomizedLink;
 use App\Http\Requests\StoreCustomizedLinkRequest;
 use App\Http\Requests\UpdateCustomizedLinkRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CustomizedLinkController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        return view('create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $request->validate([
-            'Link' => ['required'],
+            'Link' => ['required', 'unique:'.CustomizedLink::class],
             'Source' => ['required']
         ]);
 
+        $source = $request->Source;
+
+        if (!preg_match('/^https:\/\//', $source)) {
+            $source = 'https://' . $source;
+        }
+
         CustomizedLink::create([
             'Link' => $request->Link,
-            'Source' => $request->Source
+            'Source' => $source
         ]);
 
-        $link = $request->Link;
-        $message = "Link kamu telah berhasil dikustom: https://pendekinlink.id/$link";
-        return redirect('/')->with('success', $message);
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(CustomizedLink $customizedLink)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(CustomizedLink $customizedLink)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateCustomizedLinkRequest $request, CustomizedLink $customizedLink)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(CustomizedLink $customizedLink)
-    {
-        //
+        $link = 'https://pendekinlink.id/'.$request->Link;
+        return redirect('/')->with('success', $link);
     }
     
     public function redirect($link) {
@@ -83,5 +38,12 @@ class CustomizedLinkController extends Controller
             return redirect($Link->first()->Source);
         }
         return abort(404);
+    }
+
+    public function generateRandomLink() {
+        do {
+            $randomLink = Str::random(10);
+        } while(CustomizedLink::where('Link', $randomLink)->exists());
+        return redirect('/')->with('randomLink', $randomLink);
     }
 }
