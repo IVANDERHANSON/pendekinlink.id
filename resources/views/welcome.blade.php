@@ -7,6 +7,7 @@
     <title>pendekinlink.id</title>
     <link rel="shortcut icon" href="assets/Logo.jpeg" type="image/x-icon">
     @vite('resources/css/app.css')
+    <script src="https://unpkg.com/feather-icons"></script>
   </head>
   <body>
     <!-- <div class="absolute w-full px-12 py-4 shadow-nav">
@@ -93,8 +94,8 @@
             <!-- <textarea rows="1" class="w-760px text-white p-3 pl-8 font-light bg-custom-blue placeholder-white rounded-full border-4 border-custom-grey outline-none resize-none focus:bg-custom-grey focus:border-custom-blue" placeholder="Masukin link belum keren"></textarea> -->
             <div class="flex items-start justify-between gap-4 pt-7">
               <p class="text-xl font-bold pt-3.5">pendekinlink.id/</p>
-              <div class="flex-col w-full">
-                <input
+              <div class="w-full">
+              <input
                     class="input1 shadow-custom1 w-full"
                     placeholder="masukin belakang link keren"
                     name="Link"
@@ -106,6 +107,7 @@
                     </p>
                 @enderror
               </div>
+              <button id="dropdownButton" class="h-14 px-[1.588vh]  shadow-custom1 rounded-full border-3 bg-custom-grey  border-custom-black text-custom-white hover:bg-opacity-85 hover:border-custom-grey"><i data-feather="refresh-cw" class="text-custom-white h-full w-5"></i></button>
             </div>
             
             
@@ -213,5 +215,9 @@ Berawal dari visi sekelompok anak muda kreatif, pendekinlink.id menawarkan fitur
             alert("{{ session('success') }}");
         </script>
     @endif
+
+    <script>
+        feather.replace()
+    </script>
   </body>
 </html>
