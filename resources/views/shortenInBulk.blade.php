@@ -100,7 +100,7 @@
                 value="{{ old('Source') }}"
             />
             @error('Source')
-                <p class="font-semibold text-red-500 pl-5">
+                <p class="font-semibold text-red-600 pl-5">
                     {{ $message }}
                 </p>
             @enderror
@@ -116,7 +116,7 @@
                     value="{{ old('Link') }}"
                 />
                 @error('Link')
-                    <p class="font-semibold text-red-500 pl-5">
+                    <p class="font-semibold text-red-600 pl-5">
                         {{ $message }}
                     </p>
                 @enderror
@@ -136,7 +136,7 @@
                 value="{{ old('Source') }}"
             />
             @error('Source')
-                <p class="font-semibold text-red-500 pl-5">
+                <p class="font-semibold text-red-600 pl-5">
                     {{ $message }}
                 </p>
             @enderror
@@ -152,7 +152,7 @@
                     value="{{ old('Link') }}"
                 />
                 @error('Link')
-                    <p class="font-semibold text-red-500 pl-5">
+                    <p class="font-semibold text-red-600 pl-5">
                         {{ $message }}
                     </p>
                 @enderror
@@ -172,7 +172,7 @@
                 value="{{ old('Source') }}"
             />
             @error('Source')
-                <p class="font-semibold text-red-500 pl-5">
+                <p class="font-semibold text-red-600 pl-5">
                     {{ $message }}
                 </p>
             @enderror
@@ -188,7 +188,7 @@
                     value="{{ old('Link') }}"
                 />
                 @error('Link')
-                    <p class="font-semibold text-red-500 pl-5">
+                    <p class="font-semibold text-red-600 pl-5">
                         {{ $message }}
                     </p>
                 @enderror
@@ -200,7 +200,7 @@
             <button class="button1 shadow-custom1 h-20 w-[600px]" type="submit">
                 Pendekin banyak link!
             </button>
-            </div>
+        </div>
       </div>
     </div>
 

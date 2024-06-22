@@ -74,7 +74,7 @@
     </div>
 
     <div class="flex min-h-screen items-center justify-evenly">
-        <div class="flex flex-col items-center ">
+        <div class="flex flex-col items-center text-xl">
             Riwayat kamu masih kosong :(<br><div><a class="font-bold underline" href="">pendekin link</a> yuk! </div>
         </div>
     </div>
@@ -82,14 +82,14 @@
     <div  class="flex min-h-screen items-center justify-evenly">
         <div class="flex flex-col items-center">
             <!-- category -->
-            <div class="flex w-[45vw] justify-between gap-4">
-                <div class="w-[42.5vw] overflow-x-auto whitespace-nowrap">
+            <div class="flex w-[50vw] justify-between gap-4">
+                <div class="w-[47.5vw] overflow-x-auto whitespace-nowrap">
                     <ul class="flex flex-row text-nowrap gap-4">
                         <li class="minibutton1">All</li>
-                        <li class="minibutton1 gap-2">category 1 <button class="flex justify-center items-center"><i data-feather="trash" class="text-red-500 h-[2vh] hover:text-red-600 hover:bg-custom-grey hover:bg-opacity-25 rounded-full"></i></button></li>
-                        <li class="minibutton1 gap-2">category 2 <button class="flex justify-center items-center"><i data-feather="trash" class="text-red-500 h-[2vh] hover:text-red-600 hover:bg-custom-grey hover:bg-opacity-25 rounded-full"></i></button></li></li>
-                        <li class="minibutton1 gap-2">category 3 <button class="flex justify-center items-center"><i data-feather="trash" class="text-red-500 h-[2vh] hover:text-red-600 hover:bg-custom-grey hover:bg-opacity-25 rounded-full"></i></button></li></li>
-                        <li class="minibutton1 gap-2">category 4 <button class="flex justify-center items-center"><i data-feather="trash" class="text-red-500 h-[2vh] hover:text-red-600 hover:bg-custom-grey hover:bg-opacity-25 rounded-full"></i></button></li></li>
+                        <li class="minibutton1 gap-2">category 1 <button class="flex justify-center items-center"><i data-feather="trash" class="text-red-600 h-[2vh] hover:text-red-700 hover:bg-custom-grey hover:bg-opacity-25 rounded-full"></i></button></li>
+                        <li class="minibutton1 gap-2">category 2 <button class="flex justify-center items-center"><i data-feather="trash" class="text-red-600 h-[2vh] hover:text-red-700 hover:bg-custom-grey hover:bg-opacity-25 rounded-full"></i></button></li></li>
+                        <li class="minibutton1 gap-2">category 3 <button class="flex justify-center items-center"><i data-feather="trash" class="text-red-600 h-[2vh] hover:text-red-700 hover:bg-custom-grey hover:bg-opacity-25 rounded-full"></i></button></li></li>
+                        <li class="minibutton1 gap-2">category 4 <button class="flex justify-center items-center"><i data-feather="trash" class="text-red-600 h-[2vh] hover:text-red-700 hover:bg-custom-grey hover:bg-opacity-25 rounded-full"></i></button></li></li>
                     </ul>
                 </div>
                 <button class="rounded-lg text-3xl border-3 border-custom-black font-semibold text-custom-white hover:border-custom-grey hover:bg-opacity-85 h-[2.5vw] w-[2.5vw] bg-custom-blue">+</button>
@@ -112,9 +112,10 @@
                     <p class="text-end font-bold"><span class="text-xl text-custom-blue">120</span> total kunjungan</p>
 
                     <div class="flex gap-4">
-                      <button class="flex flex-row justify-center items-center gap-2 bg-red-500 text-white px-4 py-2 rounded-lg border-3 border-custom-black shadow hover:bg-red-600 hover:border-custom-grey"><i data-feather="trash" class="text-custom-white h-[2vh]"></i></button>
+                    <button class="flex flex-row justify-center items-center gap-2 bg-custom-blue text-white px-4 py-2 rounded-lg border-3 border-custom-black shadow hover:bg-opacity-85 hover:border-custom-grey"><i data-feather="edit" class="text-custom-white h-[2vh]"></i></button>
+                    <button class="flex flex-row justify-center items-center gap-2 bg-red-600 text-white px-4 py-2 rounded-lg border-3 border-custom-black shadow hover:bg-red-700 hover:border-custom-grey"><i data-feather="trash" class="text-custom-white h-[2vh]"></i></button>
                       <div class="relative">
-                        <button id="dropdownButton" class="flex flex-row justify-center items-center gap-2 bg-custom-blue text-white px-4 py-2 rounded-lg border-3 border-custom-black shadow hover:bg-opacity-85 hover:border-custom-grey">Masukin kategori <i data-feather="chevron-down" class="text-custom-white"></i></button>
+                        <button id="dropdownButton" class="flex flex-row justify-center items-center gap-2 px-4 py-2 rounded-lg border-3 bg-custom-grey  border-custom-black text-custom-white shadow hover:bg-opacity-85 hover:border-custom-grey">Masukin kategori <i data-feather="chevron-down" class="text-custom-white"></i></button>
                         <!-- Dropdown list -->
                         <ul id="dropdownList" class="absolute hidden bg-white border rounded shadow mt-1 w-full">
                             <li class="py-2 px-4 hover:bg-custom-whitegrey cursor-pointer">category 1</li>
@@ -146,9 +147,10 @@
                     <p class="text-end font-bold"><span class="text-xl text-custom-blue">120</span> total kunjungan</p>
 
                     <div class="flex gap-4">
-                      <button class="flex flex-row justify-center items-center gap-2 bg-red-500 text-white px-4 py-2 rounded-lg border-3 border-custom-black shadow hover:bg-red-600 hover:border-custom-grey"><i data-feather="trash" class="text-custom-white h-[2vh]"></i></button>
+                    <button class="flex flex-row justify-center items-center gap-2 bg-custom-blue text-white px-4 py-2 rounded-lg border-3 border-custom-black shadow hover:bg-opacity-85 hover:border-custom-grey"><i data-feather="edit" class="text-custom-white h-[2vh]"></i></button>
+                    <button class="flex flex-row justify-center items-center gap-2 bg-red-600 text-white px-4 py-2 rounded-lg border-3 border-custom-black shadow hover:bg-red-700 hover:border-custom-grey"><i data-feather="trash" class="text-custom-white h-[2vh]"></i></button>
                       <div class="relative">
-                        <button id="dropdownButton" class="flex flex-row justify-center items-center gap-2 bg-custom-blue text-white px-4 py-2 rounded-lg border-3 border-custom-black shadow hover:bg-opacity-85 hover:border-custom-grey">Masukin kategori <i data-feather="chevron-down" class="text-custom-white"></i></button>
+                      <button id="dropdownButton" class="flex flex-row justify-center items-center gap-2 px-4 py-2 rounded-lg border-3 bg-custom-grey  border-custom-black text-custom-white shadow hover:bg-opacity-85 hover:border-custom-grey">Masukin kategori <i data-feather="chevron-down" class="text-custom-white"></i></button>
                         <!-- Dropdown list -->
                         <ul id="dropdownList" class="absolute hidden bg-white border rounded shadow mt-1 w-full">
                             <li class="py-2 px-4 hover:bg-custom-whitegrey cursor-pointer">category 1</li>
@@ -178,9 +180,10 @@
                     <p class="text-end font-bold"><span class="text-xl text-custom-blue">120</span> total kunjungan</p>
 
                     <div class="flex gap-4">
-                      <button class="flex flex-row justify-center items-center gap-2 bg-red-500 text-white px-4 py-2 rounded-lg border-3 border-custom-black shadow hover:bg-red-600 hover:border-custom-grey"><i data-feather="trash" class="text-custom-white h-[2vh]"></i></button>
+                    <button class="flex flex-row justify-center items-center gap-2 bg-custom-blue text-white px-4 py-2 rounded-lg border-3 border-custom-black shadow hover:bg-opacity-85 hover:border-custom-grey"><i data-feather="edit" class="text-custom-white h-[2vh]"></i></button>
+                      <button class="flex flex-row justify-center items-center gap-2 bg-red-600 text-white px-4 py-2 rounded-lg border-3 border-custom-black shadow hover:bg-red-700 hover:border-custom-grey"><i data-feather="trash" class="text-custom-white h-[2vh]"></i></button>
                       <div class="relative">
-                        <button id="dropdownButton" class="flex flex-row justify-center items-center gap-2 bg-custom-blue text-white px-4 py-2 rounded-lg border-3 border-custom-black shadow hover:bg-opacity-85 hover:border-custom-grey">Masukin kategori <i data-feather="chevron-down" class="text-custom-white"></i></button>
+                      <button id="dropdownButton" class="flex flex-row justify-center items-center gap-2 px-4 py-2 rounded-lg border-3 bg-custom-grey  border-custom-black text-custom-white shadow hover:bg-opacity-85 hover:border-custom-grey">Masukin kategori <i data-feather="chevron-down" class="text-custom-white"></i></button>
                         <!-- Dropdown list -->
                         <ul id="dropdownList" class="absolute hidden bg-white border rounded shadow mt-1 w-full">
                             <li class="py-2 px-4 hover:bg-custom-whitegrey cursor-pointer">category 1</li>
@@ -194,6 +197,77 @@
                 </div> <!-- card end -->
               </div>
         </div>
+    </div>
+
+    <div class="flex flex-col min-h-screen items-center justify-evenly">
+      <div>
+      <p class="text-2xl font-bold text-custom-lightgrey w-full">pendekinlink.id/contohlinkpendekgantiya</p>
+
+      <div class="flex items-start justify-between gap-4 pt-5">
+        <p class="text-xl font-bold pt-3.5">pendekinlink.id/</p>
+              <div class="flex-col w-full">
+                <input
+                    class="input1 shadow-custom1 w-full"
+                    placeholder="masukin belakang link baru"
+                    name="Link"
+                    value="{{ old('Link') }}"
+                />
+                @error('Link')
+                    <p class="font-semibold text-red-600 pl-5">
+                        {{ $message }}
+                    </p>
+                @enderror
+              </div>
+      </div>
+
+      <div class="flex pt-14 gap-4 ">
+            <button class="button1 shadow-custom1 h-20 w-[520px]" type="submit">
+                Ubah link!
+            </button>
+        </div>
+      
+        <div class="w-full pt-10 text-center">
+          Gajadi ubah link?
+          <a href="{{ route('register') }}" class="font-bold underline hover:text-custom-lightgrey"
+            >Balik history yuk</a
+          >!
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col min-h-screen items-center justify-evenly">
+      <div>
+      <p class="text-xl w-full"><span class="font-bold">Kategori apa</span> yang mau ditambah?</p>
+
+      <div class="flex items-start justify-between pt-5">
+              <div class="flex-col w-full">
+                <input
+                    class="input1 shadow-custom1 w-full"
+                    placeholder="masukin kategori baru"
+                    name="Link"
+                    value="{{ old('Link') }}"
+                />
+                @error('Link')
+                    <p class="font-semibold text-red-600 pl-5">
+                        {{ $message }}
+                    </p>
+                @enderror
+              </div>
+      </div>
+
+      <div class="flex pt-14 gap-4 ">
+            <button class="button1 shadow-custom1 h-20 w-[360px]" type="submit">
+                Tambah kategori!
+            </button>
+        </div>
+      
+        <div class="w-full pt-14 text-center">
+          Gajadi tambah kategori?
+          <a href="{{ route('register') }}" class="font-bold underline hover:text-custom-lightgrey"
+            >Balik history yuk</a
+          >!
+        </div>
+      </div>
     </div>
 
     <!-- footer -->

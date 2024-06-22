@@ -63,7 +63,7 @@
                 value="{{ old('email') }}"
             />
             @error('email')
-                <p class="font-semibold text-red-500 w-full ml-5">
+                <p class="font-semibold text-red-600 w-full ml-5">
                     {{ $message }}
                 </p>
             @enderror
@@ -75,7 +75,7 @@
                 value="{{ old('password') }}"
             />
             @error('password')
-                <p class="font-semibold text-red-500 w-full ml-5">
+                <p class="font-semibold text-red-600 w-full ml-5">
                     {{ $message }}
                 </p>
             @enderror
