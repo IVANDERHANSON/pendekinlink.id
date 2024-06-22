@@ -31,6 +31,10 @@ Route::get('/edit-link', function () {
     return view('editLink');
 });
 
+Route::get('/add-category', function () {
+    return view('addCategory');
+});
+
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');

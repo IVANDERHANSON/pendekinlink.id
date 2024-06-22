@@ -73,17 +73,15 @@
       </div>
     </div>
 
-
     <div class="flex flex-col min-h-screen items-center justify-evenly">
       <div>
-      <p class="text-2xl font-bold text-custom-lightgrey w-full">pendekinlink.id/contohlinkpendekgantiya</p>
+      <p class="text-xl w-full"><span class="font-bold">Kategori apa</span> yang mau ditambah?</p>
 
-      <div class="flex items-start justify-between gap-4 pt-3.5">
-        <p class="text-xl font-bold pt-3.5">pendekinlink.id/</p>
+      <div class="flex items-start justify-between pt-3.5">
               <div class="flex-col w-full">
                 <input
                     class="input1 shadow-custom1 w-full"
-                    placeholder="masukin belakang link baru"
+                    placeholder="masukin kategori baru"
                     name="Link"
                     value="{{ old('Link') }}"
                 />
@@ -96,13 +94,13 @@
       </div>
 
       <div class="flex pt-14 gap-4 ">
-            <button class="button1 shadow-custom1 h-20 w-[520px]" type="submit">
-                Ubah link!
+            <button class="button1 shadow-custom1 h-20 w-[360px]" type="submit">
+                Tambah kategori!
             </button>
         </div>
       
-        <div class="w-full pt-10 text-center">
-          Gajadi ubah link?
+        <div class="w-full pt-14 text-center">
+          Gajadi tambah kategori?
           <a href="{{ route('register') }}" class="font-bold underline hover:text-custom-lightgrey"
             >Balik history yuk</a
           >!
