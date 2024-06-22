@@ -52,6 +52,44 @@ class CustomizedLinkController extends Controller
         do {
             $randomLink = Str::random(10);
         } while(CustomizedLink::where('Link', $randomLink)->exists());
-        return redirect('/')->with('randomLink', $randomLink);
+        return redirect()->back()->with('randomLink', $randomLink);
+    }
+
+    public function getHistory() {
+        $customizedLinks = CustomizedLink::where('CreatedBy', auth()->user()->id)->get();
+        return view('history', compact('customizedLinks'));
+    }
+
+    public function getEditLink($id) {
+        $customizedLink = CustomizedLink::find($id);
+        if ($customizedLink->CreatedBy != auth()->user()->id) {
+            return abort(404);
+        }
+        return view('editLink', compact('customizedLink'));
+    }
+    
+    public function updateLink(Request $request, $id) {
+        $customizedLink = CustomizedLink::find($id);
+        if ($customizedLink->CreatedBy != auth()->user()->id) {
+            return abort(404);
+        }
+
+        $request->validate([
+            'Link' => ['required', 'unique:'.CustomizedLink::class],
+            'Source' => ['required']
+        ]);
+
+        $source = $request->Source;
+
+        if (!preg_match('/^https:\/\//', $source)) {
+            $source = 'https://' . $source;
+        }
+
+        $customizedLink->update([
+            'Link' => $request->Link,
+            'Source' => $source
+        ]);
+
+        return redirect('/history');
     }
 }
