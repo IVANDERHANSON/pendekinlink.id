@@ -67,7 +67,7 @@
     <!-- input total link -->
     <div class="flex min-h-screen justify-center items-center">
       <div class="">
-        <p class="text-xl mb-5">Berapa <span class="font-bold">total link </span>yang<br> mau dipendekin?</p>
+        <p class="text-xl mb-3.5">Berapa <span class="font-bold">total link </span>yang<br> mau dipendekin?</p>
     <div class="relative flex items-center justify-center shadow-custom1 rounded-full">
       <button type="button" id="decrement-button" data-input-counter-decrement="quantity-input" class="h-14 w-14 pl-1 text-3xl rounded-l-full bg-custom-grey border-3 border-r-0 border-custom-black text-white hover:border-custom-grey hover:bg-custom-lightgrey">
         -
