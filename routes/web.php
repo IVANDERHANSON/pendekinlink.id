@@ -27,6 +27,9 @@ Route::get('/history', function () {
     return view('history');
 });
 
+Route::get('/edit-link', function () {
+    return view('editLink');
+});
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
