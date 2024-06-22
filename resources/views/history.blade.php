@@ -196,41 +196,6 @@
         </div>
     </div>
 
-    <div class="flex flex-col min-h-screen items-center justify-evenly">
-      <div>
-      <p class="text-xl w-full"><span class="font-bold">Kategori apa</span> yang mau ditambah?</p>
-
-      <div class="flex items-start justify-between pt-3.5">
-              <div class="flex-col w-full">
-                <input
-                    class="input1 shadow-custom1 w-full"
-                    placeholder="masukin kategori baru"
-                    name="Link"
-                    value="{{ old('Link') }}"
-                />
-                @error('Link')
-                    <p class="font-semibold text-red-600 pl-5">
-                        {{ $message }}
-                    </p>
-                @enderror
-              </div>
-      </div>
-
-      <div class="flex pt-14 gap-4 ">
-            <button class="button1 shadow-custom1 h-20 w-[360px]" type="submit">
-                Tambah kategori!
-            </button>
-        </div>
-      
-        <div class="w-full pt-14 text-center">
-          Gajadi tambah kategori?
-          <a href="{{ route('register') }}" class="font-bold underline hover:text-custom-lightgrey"
-            >Balik history yuk</a
-          >!
-        </div>
-      </div>
-    </div>
-
     <!-- footer -->
     <div class="flex bg-custom-black text-custom-white">
       <div class="flex-row w-full rounded-lg border-3 border-custom-black bg-custom-grey px-24 py-12">
