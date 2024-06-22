@@ -98,4 +98,18 @@ class CustomizedLinkController extends Controller
 
         return redirect('/history');
     }
+
+    public function getShortenInBulk() {
+        return view('shortenInBulk');
+    }
+
+    public function storeShortenInBulk(Request $request) {
+        $request->validate([
+            'Bulk' => ['required', 'integer', 'min:1', 'max:10']
+        ]);
+
+        $bulk = $request->Bulk;
+        
+        return redirect('/shorten-in-bulk')->with('bulk', $bulk);
+    }
 }

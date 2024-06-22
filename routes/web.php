@@ -20,9 +20,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/shorten-in-bulk', function () {
-    return view('shortenInBulk');
-});
+Route::get('/shorten-in-bulk', [CustomizedLinkController::class, 'getShortenInBulk']);
+Route::post('/shorten-in-bulk/store', [CustomizedLinkController::class, 'storeShortenInBulk']);
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
@@ -40,7 +39,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/history', [CustomizedLinkController::class, 'getHistory']);
     Route::get('/edit-link/{id}', [CustomizedLinkController::class, 'getEditLink']);
     Route::post('/update-link/{id}', [CustomizedLinkController::class, 'updateLink']);
-    
+
     Route::get('/add-category', [CategoryController::class, 'getAddCategory']);
     Route::post('/store-category', [CategoryController::class, 'storeCategory']);
 });

@@ -64,187 +64,131 @@
       </div>
     </div>
 
-    <!-- input total link -->
-    <div class="flex min-h-screen justify-center items-center">
-      <div class="">
-        <p class="text-xl mb-3.5">Berapa <span class="font-bold">total link </span>yang<br> mau dipendekin?</p>
-    <div class="relative flex items-center justify-center shadow-custom1 rounded-full">
-      <button type="button" id="decrement-button" data-input-counter-decrement="quantity-input" class="h-14 w-14 pl-1 text-3xl rounded-l-full bg-custom-grey border-3 border-r-0 border-custom-black text-white hover:border-custom-grey hover:bg-custom-lightgrey">
-        -
-      </button>
-      <input type="text" id="quantity-input" data-input-counter aria-describedby="helper-text-explanation" class="resize-none border-3 border-custom-black bg-custom-blue h-14 p-2.5 px-5 font-normal text-custom-white placeholder-custom-white outline-none focus:border-custom-blue focus:bg-custom-grey max-w-[88.16px] text-center" placeholder="0" required />
-      <button type="button" id="increment-button" data-input-counter-increment="quantity-input" class="h-14 w-14 pr-1 text-2xl rounded-r-full bg-custom-grey border-3 border-l-0 border-custom-black text-white hover:border-custom-grey hover:bg-custom-lightgrey">
-        +
-      </button>
-    </div>
+    @if (session('success'))
+      <!-- show link -->
+      <div class="flex-col flex min-h-screen justify-center items-center">
+        <div class="">
+          <p class="text-xl w-fit mb-3.5"><span class="font-bold">Klik link</span> kamu <span class="font-bold">untuk copy</span> linknya!</p>
+          <p class="text-xl font-semibold text-custom-lightgrey mb-1.5 overflow-hidden">linkpanjang.com/contohlinksebelumpendekgantiya</p>
+          <a class="text-2xl font-bold underline text-custom-blue text-shadow3 hover:opacity-80" href="">pendekinlink.id/contohlinkpendekgantiya</a>
 
-        <div>
-          <button class="mt-7 button1 shadow-custom1 h-20 w-full">
-            Lanjut!
-          </button>
-        </div>
-      </div>
-    </div>
-    <script>
-      document.getElementById('decrement-button').addEventListener('click', function () {
-        var input = document.getElementById('quantity-input');
-        var currentValue = parseInt(input.value) || 0;
-        if (currentValue > 0) {
-          input.value = currentValue - 1;
-        }
-      });
+          <div class="h-[2px] bg-custom-whitegrey w-full my-8"></div>
+          
+          <p class="text-xl w-fit mb-3.5"><span class="font-bold">Klik link</span> kamu <span class="font-bold">untuk copy</span> linknya!</p>
+          <p class="text-xl font-semibold text-custom-lightgrey mb-1.5 overflow-hidden">linkpanjang.com/contohlinksebelumpendekgantiya</p>
+          <a class="text-2xl font-bold underline text-custom-blue text-shadow3 hover:opacity-80" href="">pendekinlink.id/contohlinkpendekgantiya</a>
 
-      document.getElementById('increment-button').addEventListener('click', function () {
-        var input = document.getElementById('quantity-input');
-        var currentValue = parseInt(input.value) || 0;
-        input.value = currentValue + 1;
-      });
-    </script>
+          <div class="h-[2px] bg-custom-whitegrey w-full my-8"></div>
 
-
-    <!-- input link detail -->
-    <div class="flex-col flex min-h-screen justify-center items-center">
-      <div class="">
-      <p class="text-xl w-fit mb-3.5">Masukin <span class="font-bold">link awal</span> sama<span class="font-bold"> link pendek</span> kamu!</p>
-      <form action="/store" method="POST">
-            @csrf
-            <div class="flex-col">
-            <input
-                class="input1 shadow-custom1 w-full"
-                placeholder="masukin link belum keren"
-                name="Source"
-                value="{{ old('Source') }}"
-            />
-            @error('Source')
-                <p class="font-semibold text-red-600 pl-5">
-                    {{ $message }}
-                </p>
-            @enderror
-            </div>
-            <!-- <textarea rows="1" class="w-760px text-white p-3 pl-8 font-light bg-custom-blue placeholder-white rounded-full border-4 border-custom-grey outline-none resize-none focus:bg-custom-grey focus:border-custom-blue" placeholder="Masukin link belum keren"></textarea> -->
-            <div class="flex items-start justify-between gap-4 pt-5">
-              <p class="text-xl font-bold pt-3.5">pendekinlink.id/</p>
-              <div class="flex-col w-full">
-                <input
-                    class="input1 shadow-custom1 w-full"
-                    placeholder="masukin belakang link keren"
-                    name="Link"
-                    value="{{ old('Link') }}"
-                />
-                @error('Link')
-                    <p class="font-semibold text-red-600 pl-5">
-                        {{ $message }}
-                    </p>
-                @enderror
-              </div>
-            </div>
-        </form>
-        <div class="h-[2px] bg-custom-whitegrey w-full my-12"></div>
-
-        <p class="text-xl w-fit mb-3.5">Masukin <span class="font-bold">link awal</span> sama<span class="font-bold"> link pendek</span> kamu!</p>
-      <form action="/store" method="POST">
-            @csrf
-            <div class="flex-col">
-            <input
-                class="input1 shadow-custom1 w-full"
-                placeholder="masukin link belum keren"
-                name="Source"
-                value="{{ old('Source') }}"
-            />
-            @error('Source')
-                <p class="font-semibold text-red-600 pl-5">
-                    {{ $message }}
-                </p>
-            @enderror
-            </div>
-            <!-- <textarea rows="1" class="w-760px text-white p-3 pl-8 font-light bg-custom-blue placeholder-white rounded-full border-4 border-custom-grey outline-none resize-none focus:bg-custom-grey focus:border-custom-blue" placeholder="Masukin link belum keren"></textarea> -->
-            <div class="flex items-start justify-between gap-4 pt-5">
-              <p class="text-xl font-bold pt-3.5">pendekinlink.id/</p>
-              <div class="flex-col w-full">
-                <input
-                    class="input1 shadow-custom1 w-full"
-                    placeholder="masukin belakang link keren"
-                    name="Link"
-                    value="{{ old('Link') }}"
-                />
-                @error('Link')
-                    <p class="font-semibold text-red-600 pl-5">
-                        {{ $message }}
-                    </p>
-                @enderror
-              </div>
-            </div>
-        </form>
-        <div class="h-[2px] bg-custom-whitegrey w-full my-12"></div>
-
-        <p class="text-xl w-fit mb-3.5">Masukin <span class="font-bold">link awal</span> sama<span class="font-bold"> link pendek</span> kamu!</p>
-      <form action="/store" method="POST">
-            @csrf
-            <div class="flex-col">
-            <input
-                class="input1 shadow-custom1 w-full"
-                placeholder="masukin link belum keren"
-                name="Source"
-                value="{{ old('Source') }}"
-            />
-            @error('Source')
-                <p class="font-semibold text-red-600 pl-5">
-                    {{ $message }}
-                </p>
-            @enderror
-            </div>
-            <!-- <textarea rows="1" class="w-760px text-white p-3 pl-8 font-light bg-custom-blue placeholder-white rounded-full border-4 border-custom-grey outline-none resize-none focus:bg-custom-grey focus:border-custom-blue" placeholder="Masukin link belum keren"></textarea> -->
-            <div class="flex items-start justify-between gap-4 pt-5">
-              <p class="text-xl font-bold pt-3.5">pendekinlink.id/</p>
-              <div class="flex-col w-full">
-                <input
-                    class="input1 shadow-custom1 w-full"
-                    placeholder="masukin belakang link keren"
-                    name="Link"
-                    value="{{ old('Link') }}"
-                />
-                @error('Link')
-                    <p class="font-semibold text-red-600 pl-5">
-                        {{ $message }}
-                    </p>
-                @enderror
-              </div>
-            </div>
-        </form>
-
-        <div class="flex pt-14">
-            <button class="button1 shadow-custom1 h-20 w-[600px]" type="submit">
-                Pendekin banyak link!
+          <p class="text-xl w-fit mb-3.5"><span class="font-bold">Klik link</span> kamu <span class="font-bold">untuk copy</span> linknya!</p>
+          <p class="text-xl font-semibold text-custom-lightgrey mb-1.5 overflow-hidden">linkpanjang.com/contohlinksebelumpendekgantiya</p>
+          <a class="text-2xl font-bold underline text-custom-blue text-shadow3 hover:opacity-80" href="">pendekinlink.id/contohlinkpendekgantiya</a>
+          <div>
+            <button class="mt-11 button1 shadow-custom1 h-20 w-full">
+              Balik pendekin link!
             </button>
+          </div>
         </div>
       </div>
-    </div>
-
-    <!-- show link -->
-    <div class="flex-col flex min-h-screen justify-center items-center">
-      <div class="">
-        <p class="text-xl w-fit mb-3.5"><span class="font-bold">Klik link</span> kamu <span class="font-bold">untuk copy</span> linknya!</p>
-        <p class="text-xl font-semibold text-custom-lightgrey mb-1.5 overflow-hidden">linkpanjang.com/contohlinksebelumpendekgantiya</p>
-        <a class="text-2xl font-bold underline text-custom-blue text-shadow3 hover:opacity-80" href="">pendekinlink.id/contohlinkpendekgantiya</a>
-
-        <div class="h-[2px] bg-custom-whitegrey w-full my-8"></div>
+    @elseif (session('bulk'))
+      <!-- input link detail -->
+      <div class="flex-col flex min-h-screen justify-center items-center">
+        <div class="">
         
-        <p class="text-xl w-fit mb-3.5"><span class="font-bold">Klik link</span> kamu <span class="font-bold">untuk copy</span> linknya!</p>
-        <p class="text-xl font-semibold text-custom-lightgrey mb-1.5 overflow-hidden">linkpanjang.com/contohlinksebelumpendekgantiya</p>
-        <a class="text-2xl font-bold underline text-custom-blue text-shadow3 hover:opacity-80" href="">pendekinlink.id/contohlinkpendekgantiya</a>
+          @for ($i = 0; $i < session('bulk'); $i++)
+            <div>
+                      <p class="text-xl w-fit mb-3.5">Masukin <span class="font-bold">link awal</span> sama<span class="font-bold"> link pendek</span> kamu!</p>
+                <form action="/store" method="POST">
+                      @csrf
+                      <div class="flex-col">
+                      <input
+                          class="input1 shadow-custom1 w-full"
+                          placeholder="masukin link belum keren"
+                          name="Source"
+                          value="{{ old('Source') }}"
+                      />
+                      @error('Source')
+                          <p class="font-semibold text-red-600 pl-5">
+                              {{ $message }}
+                          </p>
+                      @enderror
+                      </div>
+                      <!-- <textarea rows="1" class="w-760px text-white p-3 pl-8 font-light bg-custom-blue placeholder-white rounded-full border-4 border-custom-grey outline-none resize-none focus:bg-custom-grey focus:border-custom-blue" placeholder="Masukin link belum keren"></textarea> -->
+                      <div class="flex items-start justify-between gap-4 pt-5">
+                        <p class="text-xl font-bold pt-3.5">pendekinlink.id/</p>
+                        <div class="flex-col w-full">
+                          <input
+                              class="input1 shadow-custom1 w-full"
+                              placeholder="masukin belakang link keren"
+                              name="Link"
+                              value="{{ old('Link') }}"
+                          />
+                          @error('Link')
+                              <p class="font-semibold text-red-600 pl-5">
+                                  {{ $message }}
+                              </p>
+                          @enderror
+                        </div>
+                      </div>
+                  </form>
+                  <div class="h-[2px] bg-custom-whitegrey w-full my-12"></div>
+            </div>
+          @endfor
 
-        <div class="h-[2px] bg-custom-whitegrey w-full my-8"></div>
-
-        <p class="text-xl w-fit mb-3.5"><span class="font-bold">Klik link</span> kamu <span class="font-bold">untuk copy</span> linknya!</p>
-        <p class="text-xl font-semibold text-custom-lightgrey mb-1.5 overflow-hidden">linkpanjang.com/contohlinksebelumpendekgantiya</p>
-        <a class="text-2xl font-bold underline text-custom-blue text-shadow3 hover:opacity-80" href="">pendekinlink.id/contohlinkpendekgantiya</a>
-        <div>
-          <button class="mt-11 button1 shadow-custom1 h-20 w-full">
-            Balik pendekin link!
-          </button>
+          <div class="flex pt-14">
+              <button class="button1 shadow-custom1 h-20 w-[600px]" type="submit">
+                  Pendekin banyak link!
+              </button>
+          </div>
         </div>
       </div>
-    </div>
+    @else
+      <!-- input total link -->
+      <div class="flex min-h-screen justify-center items-center">
+              <div class="">
+                <p class="text-xl mb-3.5">Berapa <span class="font-bold">total link </span>yang<br> mau dipendekin?</p>
+                {{-- <div class="relative flex items-center justify-center shadow-custom1 rounded-full"> --}}
+            <div class="relative flex items-center justify-center rounded-full">
+              <button type="button" id="decrement-button" data-input-counter-decrement="quantity-input" class="h-14 w-14 pl-1 text-3xl rounded-l-full bg-custom-grey border-3 border-r-0 border-custom-black text-white hover:border-custom-grey hover:bg-custom-lightgrey">
+                -
+              </button>
+              <form action="/shorten-in-bulk/store" method="POST" id="shortenInBulkForm">
+                @csrf
+                <input type="text" id="quantity-input" data-input-counter aria-describedby="helper-text-explanation" class="resize-none border-3 border-custom-black bg-custom-blue h-14 p-2.5 px-5 font-normal text-custom-white placeholder-custom-white outline-none focus:border-custom-blue focus:bg-custom-grey max-w-[88.16px] text-center" name="Bulk" value="{{ old('Bulk') }}" placeholder="0" required />
+              </form>
+              <button type="button" id="increment-button" data-input-counter-increment="quantity-input" class="h-14 w-14 pr-1 text-2xl rounded-r-full bg-custom-grey border-3 border-l-0 border-custom-black text-white hover:border-custom-grey hover:bg-custom-lightgrey">
+                +
+              </button>
+            </div>
+            @error('Bulk')
+                <p class="font-semibold text-red-600">
+                    {{ $message }}
+                </p>
+            @enderror
+
+                <div>
+                  <button class="mt-7 button1 shadow-custom1 h-20 w-full" type="button" id="shortenInBulkButton">
+                    Lanjut!
+                  </button>
+                </div>
+              </div>
+      </div>
+      <script>
+        document.getElementById('decrement-button').addEventListener('click', function () {
+          var input = document.getElementById('quantity-input');
+          var currentValue = parseInt(input.value) || 0;
+          if (currentValue > 0) {
+            input.value = currentValue - 1;
+          }
+        });
+
+        document.getElementById('increment-button').addEventListener('click', function () {
+          var input = document.getElementById('quantity-input');
+          var currentValue = parseInt(input.value) || 0;
+          input.value = currentValue + 1;
+        });
+      </script>
+    @endif
 
     <!-- footer -->
     <div class="flex bg-custom-black text-custom-white">
@@ -317,5 +261,11 @@ Berawal dari visi sekelompok anak muda kreatif, Pendekinlink.id menawarkan fitur
             });
         </script>
     @endif
+
+    <script>
+      document.getElementById('shortenInBulkButton').addEventListener('click', function() {
+          document.getElementById('shortenInBulkForm').submit();
+      });
+    </script>
   </body>
 </html>
