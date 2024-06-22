@@ -68,15 +68,15 @@
     <div class="flex min-h-screen justify-center items-center">
       <div class="">
         <p class="text-xl mb-5">Berapa <span class="font-bold">total link </span>yang<br> mau dipendekin?</p>
-        <div class="relative flex items-center justify-center shadow-custom1 rounded-full">
-          <button type="button" id="decrement-button" data-input-counter-decrement="quantity-input" class="h-14 w-14 pl-1 text-3xl rounded-l-full bg-custom-grey border-3 border-r-0 border-custom-black text-white hover:border-custom-grey hover:bg-custom-lightgrey">
-              -
-          </button>
-          <input type="text" id="quantity-input" data-input-counter aria-describedby="helper-text-explanation" class="resize-none border-3 border-custom-black bg-custom-blue h-14 p-2.5 px-5 font-normal text-custom-white placeholder-custom-white outline-none focus:border-custom-blue focus:bg-custom-grey max-w-[88.16px] text-center" placeholder="0" required />
-          <button type="button" id="decrement-button" data-input-counter-decrement="quantity-input" class="h-14 w-14 pr-1 text-2xl rounded-r-full bg-custom-grey border-3 border-l-0 border-custom-black text-white hover:border-custom-grey hover:bg-custom-lightgrey">
-            +
-        </button>
-      </div>
+    <div class="relative flex items-center justify-center shadow-custom1 rounded-full">
+      <button type="button" id="decrement-button" data-input-counter-decrement="quantity-input" class="h-14 w-14 pl-1 text-3xl rounded-l-full bg-custom-grey border-3 border-r-0 border-custom-black text-white hover:border-custom-grey hover:bg-custom-lightgrey">
+        -
+      </button>
+      <input type="text" id="quantity-input" data-input-counter aria-describedby="helper-text-explanation" class="resize-none border-3 border-custom-black bg-custom-blue h-14 p-2.5 px-5 font-normal text-custom-white placeholder-custom-white outline-none focus:border-custom-blue focus:bg-custom-grey max-w-[88.16px] text-center" placeholder="0" required />
+      <button type="button" id="increment-button" data-input-counter-increment="quantity-input" class="h-14 w-14 pr-1 text-2xl rounded-r-full bg-custom-grey border-3 border-l-0 border-custom-black text-white hover:border-custom-grey hover:bg-custom-lightgrey">
+        +
+      </button>
+    </div>
 
         <div>
           <button class="mt-7 button1 shadow-custom1 h-20 w-full">
@@ -85,6 +85,22 @@
         </div>
       </div>
     </div>
+    <script>
+      document.getElementById('decrement-button').addEventListener('click', function () {
+        var input = document.getElementById('quantity-input');
+        var currentValue = parseInt(input.value) || 0;
+        if (currentValue > 0) {
+          input.value = currentValue - 1;
+        }
+      });
+
+      document.getElementById('increment-button').addEventListener('click', function () {
+        var input = document.getElementById('quantity-input');
+        var currentValue = parseInt(input.value) || 0;
+        input.value = currentValue + 1;
+      });
+    </script>
+
 
     <!-- input link detail -->
     <div class="flex-col flex min-h-screen justify-center items-center">
