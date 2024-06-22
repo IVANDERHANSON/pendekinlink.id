@@ -129,7 +129,7 @@
                       </p>
                   @enderror
                 </div>
-                <button id="dropdownButton" class="h-14 px-[15px]  shadow-custom1 rounded-full border-3 bg-custom-grey  border-custom-black text-custom-white hover:bg-opacity-85 hover:border-custom-grey" type="button" id="dropdownButton"><i data-feather="refresh-cw" class="text-custom-white h-full w-5"></i></button>
+                <button id="dropdownButton" class="h-14 px-[15px]  shadow-custom1 rounded-full border-3 bg-custom-grey  border-custom-black text-custom-white hover:bg-opacity-85 hover:border-custom-grey" type="button"><i data-feather="refresh-cw" class="text-custom-white h-full w-5"></i></button>
               </div>
               
               
