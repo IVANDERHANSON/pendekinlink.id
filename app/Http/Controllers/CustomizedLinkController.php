@@ -67,7 +67,7 @@ class CustomizedLinkController extends Controller
     }
 
     public function getEditLink($id) {
-        $customizedLink = CustomizedLink::find($id);
+        $customizedLink = CustomizedLink::findOrFail($id);
         if ($customizedLink->CreatedBy != auth()->user()->id) {
             return abort(404);
         }
@@ -75,7 +75,7 @@ class CustomizedLinkController extends Controller
     }
     
     public function updateLink(Request $request, $id) {
-        $customizedLink = CustomizedLink::find($id);
+        $customizedLink = CustomizedLink::findOrFail($id);
         if ($customizedLink->CreatedBy != auth()->user()->id) {
             return abort(404);
         }
