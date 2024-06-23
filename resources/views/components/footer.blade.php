@@ -10,7 +10,8 @@
     <div
       class="flex w-fit rounded-lg border-3 border-x-0 border-custom-black bg-custom-grey px-24 py-12"
     >
-      <div>
+      <form action="/store-contact-us" method="POST">
+        @csrf
         <p
           class="text-shadow2 text-3xl font-semibold min-[1613px]:whitespace-nowrap"
         >
@@ -20,16 +21,31 @@
         <input
           class="input2 mt-7 w-full shadow-custom2"
           placeholder="masukin email kamu"
+          type="email"
+          name="Email"
+          value="{{ old('Email') }}"
         />
+        @error('Email')
+          <p class="font-semibold text-red-600 pl-5">
+              {{ $message }}
+          </p>
+        @enderror
+        
         <textarea
           class="input2 mt-7 h-40 w-full shadow-custom2"
           placeholder="masukin pesan kamu"
-        ></textarea>
+          name="Message"
+        >{{ old('Message') }}</textarea>
+        @error('Message')
+          <p class="font-semibold text-red-600 pl-5">
+              {{ $message }}
+          </p>
+        @enderror
 
         <button class="button2 shadow-custom2 h-20 w-full mt-5 " type="submit">
               Kirim pesan!
           </button>
-      </div>
+      </form>
     </div>
 
     <div
@@ -53,3 +69,9 @@
       </div>
     </div>
   </div>
+
+  @if (session('contactUs'))
+    <script>
+      alert("{{ session('contactUs') }}");
+    </script>
+  @endif

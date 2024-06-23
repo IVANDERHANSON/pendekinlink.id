@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\CustomizedLinkController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -49,3 +50,4 @@ require __DIR__.'/auth.php';
 Route::post('/store', [CustomizedLinkController::class, 'store']);
 Route::get('/{link}', [CustomizedLinkController::class, 'redirect']);
 Route::post('/generate-random-link', [CustomizedLinkController::class, 'generateRandomLink']);
+Route::post('/store-contact-us', [ContactUsController::class, 'store']);
