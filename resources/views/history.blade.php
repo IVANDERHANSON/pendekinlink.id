@@ -93,7 +93,7 @@
                             </script>
 
                             <div class="relative">
-                              <button id="dropdownButton" class="flex flex-row justify-center items-center gap-2 px-4 py-2 rounded-lg border-3 bg-custom-grey  border-custom-black text-custom-white shadow-custom1 hover:bg-opacity-85 hover:border-custom-grey">
+                              <button id="dropdownButton{{ $customizedLink->id }}" class="flex flex-row justify-center items-center gap-2 px-4 py-2 rounded-lg border-3 bg-custom-grey  border-custom-black text-custom-white shadow-custom1 hover:bg-opacity-85 hover:border-custom-grey">
                                 @if (!$customizedLink->category)
                                   Masukin kategori
                                 @else
@@ -101,7 +101,7 @@
                                 @endif
                                 <i data-feather="chevron-down" class="text-custom-white"></i></button>
                               <!-- Dropdown list -->
-                              <ul id="dropdownList" class="absolute hidden bg-white border rounded shadow-custom1 mt-1 w-full">
+                              <ul id="dropdownList{{ $customizedLink->id }}" class="absolute hidden bg-white border rounded shadow-custom1 mt-1 w-full z-10">
                                   @forelse (auth()->user()->categories as $category)
                                     <li class="py-2 px-4 hover:bg-custom-whitegrey cursor-pointer" id="addLinkCategory{{ $customizedLink->id.$category->id }}">{{ $category->Name }}</li>
 
@@ -118,6 +118,24 @@
                                     <li class="py-2 px-4 hover:bg-custom-whitegrey cursor-pointer">Belum ada kategori yang dibuat.</li>
                                   @endforelse
                               </ul>
+
+                              <script>
+                                // Get dropdown elements
+                                const dropdownButton{{ $customizedLink->id }} = document.getElementById('dropdownButton{{ $customizedLink->id }}');
+                                const dropdownList{{ $customizedLink->id }} = document.getElementById('dropdownList{{ $customizedLink->id }}');
+
+                                // Toggle dropdown visibility
+                                dropdownButton{{ $customizedLink->id }}.addEventListener('click', () => {
+                                    dropdownList{{ $customizedLink->id }}.classList.toggle('hidden');
+                                });
+
+                                // Hide dropdown on outside click
+                                document.addEventListener('click', (e) => {
+                                    if (!dropdownButton{{ $customizedLink->id }}.contains(e.target)) {
+                                        dropdownList{{ $customizedLink->id }}.classList.add('hidden');
+                                    }
+                                });
+                              </script>
                             </div>
                             
                           </div>
@@ -205,22 +223,6 @@
     <x-footer></x-footer>
 
     <script>
-        // Get dropdown elements
-        const dropdownButton = document.getElementById('dropdownButton');
-        const dropdownList = document.getElementById('dropdownList');
-
-        // Toggle dropdown visibility
-        dropdownButton.addEventListener('click', () => {
-            dropdownList.classList.toggle('hidden');
-        });
-
-        // Hide dropdown on outside click
-        document.addEventListener('click', (e) => {
-            if (!dropdownButton.contains(e.target)) {
-                dropdownList.classList.add('hidden');
-            }
-        });
-
         document.getElementById('addCategory').addEventListener('click', function() {
             window.location.href = '/add-category';
         });
