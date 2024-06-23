@@ -23,6 +23,21 @@ class CategoryController extends Controller
             'CreatedBy' => auth()->user()->id
         ]);
 
-        return view('/history');
+        return redirect('/history');
+    }
+
+    public function deleteCategory($id) {
+        $category = Category::findOrFail($id);
+        if ($category->CreatedBy != auth()->user()->id) {
+            return abort(404);
+        }
+        $customizedLinks = $category->customizedLinks;
+        foreach ($customizedLinks as $customizedLink) {
+            $customizedLink->update([
+                'CategoryId' => null
+            ]);
+        }
+        $category->delete();
+        return redirect('/history');
     }
 }

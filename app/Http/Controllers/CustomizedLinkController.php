@@ -63,7 +63,30 @@ class CustomizedLinkController extends Controller
 
     public function getHistory() {
         $customizedLinks = CustomizedLink::where('CreatedBy', auth()->user()->id)->get();
-        return view('history', compact('customizedLinks'));
+        $categories = Category::where('CreatedBy', auth()->user()->id)->get();
+        $exists = CustomizedLink::where('CreatedBy', auth()->user()->id)->exists();
+        return view('history', compact('customizedLinks', 'categories', 'exists'));
+    }
+
+    public function getHistoryPage($categoryId) {
+        if (!CustomizedLink::where('CreatedBy', auth()->user()->id)->where('CategoryId', $categoryId)->exists()) {
+            return redirect('/history')->with('categorizedLinkNull', 'Belum ada link yang ditambahkan ke kategori ini!');
+        }
+        $customizedLinks = CustomizedLink::where('CreatedBy', auth()->user()->id)->where('CategoryId', $categoryId)->get();
+        $categories = Category::where('CreatedBy', auth()->user()->id)->get();
+        $exists = CustomizedLink::where('CreatedBy', auth()->user()->id)->exists();
+        return view('history', compact('customizedLinks', 'categories', 'exists'));
+    }
+
+    public function addLinkCategory($linkId, $categoryId) {
+        $customizedLink = CustomizedLink::findOrFail($linkId);
+        if ($customizedLink->CreatedBy != auth()->user()->id) {
+            return abort(404);
+        }
+        $customizedLink->update([
+            'CategoryId' => $categoryId
+        ]);
+        return redirect('/history');
     }
 
     public function getEditLink($id) {

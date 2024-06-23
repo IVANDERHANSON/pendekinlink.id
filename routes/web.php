@@ -38,11 +38,14 @@ Route::middleware('auth')->group(function () {
     // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
     Route::get('/history', [CustomizedLinkController::class, 'getHistory']);
+    Route::get('/history/{categoryId}', [CustomizedLinkController::class, 'getHistoryPage']);
+    Route::post('/add-link-category/{linkId}/{categoryId}', [CustomizedLinkController::class, 'addLinkCategory']);
     Route::get('/edit-link/{id}', [CustomizedLinkController::class, 'getEditLink']);
     Route::post('/update-link/{id}', [CustomizedLinkController::class, 'updateLink']);
 
     Route::get('/add-category', [CategoryController::class, 'getAddCategory']);
     Route::post('/store-category', [CategoryController::class, 'storeCategory']);
+    Route::post('/delete-category/{id}', [CategoryController::class, 'deleteCategory']);
 });
 
 require __DIR__.'/auth.php';
