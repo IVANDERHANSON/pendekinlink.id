@@ -23,6 +23,8 @@ Route::get('/', function () {
 
 Route::get('/shorten-in-bulk', [CustomizedLinkController::class, 'getShortenInBulk']);
 Route::post('/shorten-in-bulk/store', [CustomizedLinkController::class, 'storeShortenInBulk']);
+Route::post('/store-shorten-in-bulk', [CustomizedLinkController::class, 'shortenInBulkStore']);
+Route::post('/edit-bulk', [CustomizedLinkController::class, 'editBulk']);
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

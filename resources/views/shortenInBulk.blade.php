@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="../src/output.css" />
     <title>pendekinlink.id | Shorten In Bulk</title>
     @vite('resources/css/app.css')
+
+    <!-- feathericons.com -->
+    <script src="https://unpkg.com/feather-icons"></script>
   </head>
   <body>
     <!-- <div class="absolute w-full px-12 py-4 shadow-nav">
@@ -49,56 +52,66 @@
           </div>
         </div>
       </div>
-    @elseif (session('bulk'))
+    @elseif (Cookie::get('bulk'))
       <!-- input link detail -->
       <div class="flex-col flex min-h-screen justify-center items-center">
         <div class="">
         
-          @for ($i = 0; $i < session('bulk'); $i++)
+          <form action="/store-shorten-in-bulk" method="POST">
+            @csrf
+            @for ($i = 0; $i < Cookie::get('bulk'); $i++)
             <div>
-                      <p class="text-xl w-fit mb-3.5">Masukin <span class="font-bold">link awal</span> sama<span class="font-bold"> link pendek</span> kamu!</p>
-                <form action="/store" method="POST">
-                      @csrf
-                      <div class="flex-col">
+                  <p class="text-xl w-fit mb-3.5">Masukin <span class="font-bold">link awal</span> sama<span class="font-bold"> link pendek</span> kamu!</p>
+                  <div class="flex-col">
+                  <input
+                      class="input1 shadow-custom1 w-full"
+                      placeholder="masukin link belum keren"
+                      name="Bulks[{{ $i }}][Source]"
+                      value="{{ old('Bulks.'.$i.'.Source') }}"
+                  />
+                  @error('Bulks.'.$i.'.Source')
+                      <p class="font-semibold text-red-600 pl-5">
+                          {{ $message }}
+                      </p>
+                  @enderror
+                  </div>
+                  <!-- <textarea rows="1" class="w-760px text-white p-3 pl-8 font-light bg-custom-blue placeholder-white rounded-full border-4 border-custom-grey outline-none resize-none focus:bg-custom-grey focus:border-custom-blue" placeholder="Masukin link belum keren"></textarea> -->
+                  <div class="flex items-start justify-between gap-4 pt-5">
+                    <p class="text-xl font-bold pt-3.5">pendekinlink.id/</p>
+                    <div class="flex-col w-full">
                       <input
                           class="input1 shadow-custom1 w-full"
-                          placeholder="masukin link belum keren"
-                          name="Source"
-                          value="{{ old('Source') }}"
+                          placeholder="masukin belakang link keren"
+                          name="Bulks[{{ $i }}][Link]"
+                          value="{{ old('Bulks.'.$i.'.Link') }}"
                       />
-                      @error('Source')
+                      @error('Bulks.'.$i.'.Link')
                           <p class="font-semibold text-red-600 pl-5">
                               {{ $message }}
                           </p>
                       @enderror
-                      </div>
-                      <!-- <textarea rows="1" class="w-760px text-white p-3 pl-8 font-light bg-custom-blue placeholder-white rounded-full border-4 border-custom-grey outline-none resize-none focus:bg-custom-grey focus:border-custom-blue" placeholder="Masukin link belum keren"></textarea> -->
-                      <div class="flex items-start justify-between gap-4 pt-5">
-                        <p class="text-xl font-bold pt-3.5">pendekinlink.id/</p>
-                        <div class="flex-col w-full">
-                          <input
-                              class="input1 shadow-custom1 w-full"
-                              placeholder="masukin belakang link keren"
-                              name="Link"
-                              value="{{ old('Link') }}"
-                          />
-                          @error('Link')
-                              <p class="font-semibold text-red-600 pl-5">
-                                  {{ $message }}
-                              </p>
-                          @enderror
-                        </div>
-                      </div>
-                  </form>
+                    </div>
+                  </div>
                   <div class="h-[2px] bg-custom-whitegrey w-full my-12"></div>
-            </div>
-          @endfor
+                </div>
+                @endfor
 
-          <div class="flex pt-14">
-              <button class="button1 shadow-custom1 h-20 w-[600px]" type="submit">
-                  Pendekin banyak link!
-              </button>
-          </div>
+                <div class="flex justify-center items-center gap-4">
+                  <p>Total Link: {{ Cookie::get('bulk') }}</p>
+                  <button class="flex flex-row justify-center items-center gap-2 bg-custom-blue text-white px-2 py-2 rounded-lg border-3 border-custom-black shadow-custom1 hover:bg-opacity-85 hover:border-custom-grey" type="button" id="editBulk"><i data-feather="edit" class="text-custom-white h-[2vh]"></i></button>
+                </div>
+                
+                <div class="flex pt-14">
+                    <button class="button1 shadow-custom1 h-20 w-[600px]" type="submit">
+                        Pendekin banyak link!
+                    </button>
+                </div>
+            </form>
+
+            <form action="/edit-bulk" method="POST" class="hidden" id="editBulkForm">
+              @csrf
+            </form>
+
         </div>
       </div>
     @else
@@ -152,10 +165,23 @@
     <!-- footer -->
     <x-footer></x-footer>
 
+    <!-- feathericons.com -->
     <script>
-      document.getElementById('shortenInBulkButton').addEventListener('click', function() {
-          document.getElementById('shortenInBulkForm').submit();
-      });
+        feather.replace()
     </script>
+
+    @if (Cookie::get('bulk'))
+      <script>
+        document.getElementById('editBulk').addEventListener('click', function() {
+            document.getElementById('editBulkForm').submit();
+        });
+      </script>
+    @else
+      <script>
+        document.getElementById('shortenInBulkButton').addEventListener('click', function() {
+            document.getElementById('shortenInBulkForm').submit();
+        });
+      </script>
+    @endif
   </body>
 </html>

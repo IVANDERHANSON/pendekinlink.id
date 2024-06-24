@@ -7,6 +7,7 @@ use App\Http\Requests\StoreCustomizedLinkRequest;
 use App\Http\Requests\UpdateCustomizedLinkRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Str;
 
 class CustomizedLinkController extends Controller
@@ -39,6 +40,32 @@ class CustomizedLinkController extends Controller
 
         $link = 'https://pendekinlink.id/'.$request->Link;
         return redirect('/')->with('success', $link);
+    }
+
+    public function shortenInBulkStore(Request $request) {
+        $validated = $request->validate([
+            'Bulks' => ['required', 'array', 'min:1', 'max:10'],
+            'Bulks.*.Link' => ['required', 'unique:'.CustomizedLink::class],
+            'Bulks.*.Source' => ['required']
+        ], [
+            'Bulks.*.Source.required' => 'The Source field is required.',
+            'Bulks.*.Link.required' => 'The Link field is required.',
+            'Bulks.*.Link.unique' => 'The Link has already been taken.'
+        ]);
+
+        foreach ($validated['Bulks'] as $Bulk) {
+            if (!preg_match('/^https:\/\//', $Bulk['Source'])) {
+                $Bulk['Source'] = 'https://' . $Bulk['Source'];
+            }
+            if (auth()->user()) {
+                $Bulk['CreatedBy'] = auth()->user()->id;
+            }
+            CustomizedLink::create($Bulk);
+        }
+
+        Cookie::expire('bulk');
+
+        return redirect('/shorten-in-bulk');
     }
     
     public function redirect($link) {
@@ -132,7 +159,13 @@ class CustomizedLinkController extends Controller
         ]);
 
         $bulk = $request->Bulk;
+        Cookie::queue('bulk', $bulk);
         
-        return redirect('/shorten-in-bulk')->with('bulk', $bulk);
+        return redirect('/shorten-in-bulk');
+    }
+
+    public function editBulk() {
+        Cookie::expire('bulk');
+        return redirect('/shorten-in-bulk');
     }
 }
