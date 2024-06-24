@@ -30,21 +30,14 @@
       <!-- show link -->
       <div class="flex-col flex min-h-screen justify-center items-center">
         <div class="">
-          <p class="text-xl w-fit mb-3.5"><span class="font-bold">Klik link</span> kamu <span class="font-bold">untuk copy</span> linknya!</p>
-          <p class="text-xl font-semibold text-custom-lightgrey mb-1.5 overflow-hidden">linkpanjang.com/contohlinksebelumpendekgantiya</p>
-          <a class="text-2xl font-bold underline text-custom-blue text-shadow3 hover:opacity-80" href="">pendekinlink.id/contohlinkpendekgantiya</a>
 
-          <div class="h-[2px] bg-custom-whitegrey w-full my-8"></div>
-          
-          <p class="text-xl w-fit mb-3.5"><span class="font-bold">Klik link</span> kamu <span class="font-bold">untuk copy</span> linknya!</p>
-          <p class="text-xl font-semibold text-custom-lightgrey mb-1.5 overflow-hidden">linkpanjang.com/contohlinksebelumpendekgantiya</p>
-          <a class="text-2xl font-bold underline text-custom-blue text-shadow3 hover:opacity-80" href="">pendekinlink.id/contohlinkpendekgantiya</a>
+          @foreach (session('success') as $bulk)
+            <p class="text-xl w-fit mb-3.5"><span class="font-bold">Link</span> kamu <span class="font-bold">berhasil dikustom</span>!</p>
+            <a class="text-2xl font-bold underline text-custom-blue text-shadow3 hover:opacity-80" href="https://pendekinlink.id/{{ $bulk['Link'] }}">https://pendekinlink.id/{{ $bulk['Link'] }}</a>
 
-          <div class="h-[2px] bg-custom-whitegrey w-full my-8"></div>
+            <div class="h-[2px] bg-custom-whitegrey w-full my-8"></div>
+          @endforeach
 
-          <p class="text-xl w-fit mb-3.5"><span class="font-bold">Klik link</span> kamu <span class="font-bold">untuk copy</span> linknya!</p>
-          <p class="text-xl font-semibold text-custom-lightgrey mb-1.5 overflow-hidden">linkpanjang.com/contohlinksebelumpendekgantiya</p>
-          <a class="text-2xl font-bold underline text-custom-blue text-shadow3 hover:opacity-80" href="">pendekinlink.id/contohlinkpendekgantiya</a>
           <div>
             <button class="mt-11 button1 shadow-custom1 h-20 w-full">
               Balik pendekin link!
@@ -79,18 +72,28 @@
                   <div class="flex items-start justify-between gap-4 pt-5">
                     <p class="text-xl font-bold pt-3.5">pendekinlink.id/</p>
                     <div class="flex-col w-full">
-                      <input
-                          class="input1 shadow-custom1 w-full"
-                          placeholder="masukin belakang link keren"
-                          name="Bulks[{{ $i }}][Link]"
-                          value="{{ old('Bulks.'.$i.'.Link') }}"
-                      />
+                      @if (session('randomLink'))
+                        <input
+                            class="input1 shadow-custom1 w-full"
+                            placeholder="masukin belakang link keren"
+                            name="Bulks[{{ $i }}][Link]"
+                            value="{{ session('randomLink').$i+1 }}"
+                        />
+                      @else
+                        <input
+                            class="input1 shadow-custom1 w-full"
+                            placeholder="masukin belakang link keren"
+                            name="Bulks[{{ $i }}][Link]"
+                            value="{{ old('Bulks.'.$i.'.Link') }}"
+                        />
+                      @endif
                       @error('Bulks.'.$i.'.Link')
                           <p class="font-semibold text-red-600 pl-5">
                               {{ $message }}
                           </p>
                       @enderror
                     </div>
+                    <button id="generateRandomLink{{ $i }}" class="h-14 px-[15px]  shadow-custom1 rounded-full border-3 bg-custom-grey  border-custom-black text-custom-white hover:bg-opacity-85 hover:border-custom-grey" type="button"><i data-feather="refresh-cw" class="text-custom-white h-full w-5"></i></button>
                   </div>
                   <div class="h-[2px] bg-custom-whitegrey w-full my-12"></div>
                 </div>
@@ -111,6 +114,18 @@
             <form action="/edit-bulk" method="POST" class="hidden" id="editBulkForm">
               @csrf
             </form>
+
+            @for ($i = 0; $i < Cookie::get('bulk'); $i++)
+              <form action="/generate-random-link" method="POST" id="generateRandomLinkForm{{ $i }}">
+                @csrf
+              </form>
+              
+              <script>
+                document.getElementById('generateRandomLink{{ $i }}').addEventListener('click', function() {
+                    document.getElementById('generateRandomLinkForm{{ $i }}').submit();
+                });
+              </script>
+            @endfor
 
         </div>
       </div>
@@ -176,6 +191,11 @@
             document.getElementById('editBulkForm').submit();
         });
       </script>
+      @error ('Bulks')
+        <script>
+          alert("{{ $message }}");
+        </script>
+      @enderror
     @else
       <script>
         document.getElementById('shortenInBulkButton').addEventListener('click', function() {

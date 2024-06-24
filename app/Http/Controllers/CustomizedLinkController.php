@@ -53,6 +53,13 @@ class CustomizedLinkController extends Controller
             'Bulks.*.Link.unique' => 'The Link has already been taken.'
         ]);
 
+        $bulks = $request->input('Bulks');
+        $links = array_column($bulks, 'Link');
+        
+        if (count($links) !== count(array_unique($links))) {
+            return redirect()->back()->withErrors(['Bulks' => 'Duplicate Links are not allowed.'])->withInput();
+        }
+
         foreach ($validated['Bulks'] as $Bulk) {
             if (!preg_match('/^https:\/\//', $Bulk['Source'])) {
                 $Bulk['Source'] = 'https://' . $Bulk['Source'];
@@ -65,7 +72,7 @@ class CustomizedLinkController extends Controller
 
         Cookie::expire('bulk');
 
-        return redirect('/shorten-in-bulk');
+        return redirect('/shorten-in-bulk')->with('success', $validated['Bulks']);
     }
     
     public function redirect($link) {
