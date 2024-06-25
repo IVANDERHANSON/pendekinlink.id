@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../src/output.css" />
     <title>pendekinlink.id | Shorten In Bulk</title>
+    <link rel="shortcut icon" href="assets/Logo.jpeg" type="image/x-icon">
     @vite('resources/css/app.css')
 
     <!-- feathericons.com -->
@@ -33,13 +34,13 @@
 
           @foreach (session('success') as $bulk)
             <p class="text-xl w-fit mb-3.5"><span class="font-bold">Link</span> kamu <span class="font-bold">berhasil dikustom</span>!</p>
-            <a class="text-2xl font-bold underline text-custom-blue text-shadow3 hover:opacity-80" href="https://pendekinlink.id/{{ $bulk['Link'] }}">https://pendekinlink.id/{{ $bulk['Link'] }}</a>
+            <a class="text-2xl font-bold underline text-custom-blue text-shadow3 hover:opacity-80" href="https://pendekinlink.id/{{ $bulk['Link'] }}" target="_blank">https://pendekinlink.id/{{ $bulk['Link'] }}</a>
 
             <div class="h-[2px] bg-custom-whitegrey w-full my-8"></div>
           @endforeach
 
           <div>
-            <button class="mt-11 button1 shadow-custom1 h-20 w-full">
+            <button class="mt-11 button1 shadow-custom1 h-20 w-full" id="back">
               Balik pendekin link!
             </button>
           </div>
@@ -185,7 +186,13 @@
         feather.replace()
     </script>
 
-    @if (Cookie::get('bulk'))
+    @if (session('success'))
+      <script>
+        document.getElementById('back').addEventListener('click', function() {
+            window.location.href = '/shorten-in-bulk';
+        });
+      </script>
+    @elseif (Cookie::get('bulk'))
       <script>
         document.getElementById('editBulk').addEventListener('click', function() {
             document.getElementById('editBulkForm').submit();

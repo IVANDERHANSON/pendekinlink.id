@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="src/output.css" />
     <title>pendekinlink.id | Edit Link</title>
-    <link rel="shortcut icon" href="assets/Logo.jpeg" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('assets/Logo.jpeg') }}" type="image/x-icon">
     @vite('resources/css/app.css')
     <style>
 .custom-arrow {

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="src/output.css" />
     <title>pendekinlink.id | History</title>
-    <link rel="shortcut icon" href="assets/Logo.jpeg" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('assets/Logo.jpeg') }}" type="image/x-icon">
     @vite('resources/css/app.css')
     <style>
 .custom-arrow {
@@ -76,7 +76,7 @@
                         {{-- <p class="text-xl w-fit mb-3.5"><span class="font-bold">Klik link</span> kamu <span class="font-bold">untuk copy</span> linknya!</p> --}}
                           <div>
                           <p class="text-xl font-semibold text-custom-lightgrey mb-1.5 overflow-hidden">{{ $customizedLink->Source }}</p>
-                          <a class="text-2xl font-bold underline text-custom-blue text-shadow3 hover:opacity-80" href="https://pendekinlink.id/{{ $customizedLink->Link }}">https://pendekinlink.id/{{ $customizedLink->Link }}</a>
+                          <a class="text-2xl font-bold underline text-custom-blue text-shadow3 hover:opacity-80" href="https://pendekinlink.id/{{ $customizedLink->Link }}" target="_blank">https://pendekinlink.id/{{ $customizedLink->Link }}</a>
                           </div>
                         </div>
 
