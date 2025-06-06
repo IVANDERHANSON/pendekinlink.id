@@ -2,7 +2,7 @@
     <div class="flex w-full h-[10vh] items-center rounded-lg border-3 border-custom-black bg-custom-grey px-2 sm:px-8 py-3">
         <a href="/" class="text-[0.5rem] sm:text-[0.75rem] md:text-[1rem] lg:text-[1.5rem] xl:text-[2rem] font-bold tracking-tight text-custom-white">
           pendekinlink
-          <span class="text-[calc(0.375rem/2)] sm:text-[0.375rem] md:text-[0.75rem] lg:text-[1.5rem] xl:text-[3rem] text-custom-blue">.</span>
+          <span class="text-[calc(0.5rem)] sm:text-[1rem] md:text-[1.5rem] lg:text-[2.5rem] xl:text-[3rem] text-custom-blue">.</span>
           id
         </a>
     </div>
@@ -26,13 +26,13 @@
         <button
             class="flex h-[10vh] box-border items-center rounded-lg border-3 border-custom-black bg-custom-grey px-2 sm:px-8 py-3 font-medium hover:bg-custom-blue"
             id="logout">
-            Keluar
+            Logout
         </button>
     @else
         <button
             class="flex h-[10vh] box-border items-center rounded-lg border-3 border-custom-black bg-custom-grey px-2 sm:px-8 py-3 font-medium hover:bg-custom-blue"
             id="login">
-            Masuk
+            Login
         </button>
     @endif
 </div>
