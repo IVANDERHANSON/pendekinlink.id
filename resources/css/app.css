@@ -27,6 +27,14 @@ body {
     @apply resize-none rounded-lg border-3 border-custom-white bg-custom-blue p-2.5 pl-5 font-normal text-custom-white placeholder-custom-white outline-none focus:border-custom-blue focus:bg-custom-black;
 }
 
+.text-size1 {
+    @apply text-[0.3rem] sm:text-[0.5rem] md:text-[0.75rem] lg:text-[1rem] xl:text-[1.2rem] leading-[0.8rem] sm:leading-[1rem] md:leading-[1.25rem] lg:leading-[1.5rem] xl:leading-[1.7rem]
+}
+
+.text-size2 {
+    @apply text-[0.5rem] sm:text-[0.75rem] md:text-[1rem] lg:text-[1.5rem] xl:text-[2rem] leading-[1rem] sm:leading-[1.25rem] md:leading-[1.5rem] lg:leading-[2rem] xl:leading-[2.5rem]
+}
+
 .text-shadow1 {
     text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.08);
 }
