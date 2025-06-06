@@ -20,11 +20,11 @@ body {
 }
 
 .input1 {
-    @apply h-14 resize-none rounded-full border-3 border-custom-black bg-custom-blue p-2.5 pl-5 font-normal text-custom-white placeholder-custom-white outline-none focus:border-custom-blue focus:bg-custom-grey;
+    @apply h-14 resize-none rounded-lg border-3 border-custom-black bg-custom-blue p-2.5 pl-5 font-normal text-custom-white placeholder-custom-white outline-none focus:border-custom-blue focus:bg-custom-grey;
 }
 
 .input2 {
-    @apply resize-none rounded-4xl border-3 border-custom-white bg-custom-blue p-2.5 pl-5 font-normal text-custom-white placeholder-custom-white outline-none focus:border-custom-blue focus:bg-custom-black;
+    @apply resize-none rounded-lg border-3 border-custom-white bg-custom-blue p-2.5 pl-5 font-normal text-custom-white placeholder-custom-white outline-none focus:border-custom-blue focus:bg-custom-black;
 }
 
 .text-shadow1 {
