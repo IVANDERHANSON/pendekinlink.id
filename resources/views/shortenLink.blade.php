@@ -43,7 +43,7 @@
                             name="Source" value="{{ old('Source') }}" />
                         @error('Source')
                             <p class="font-semibold text-red-600 pl-5 text-[0.3rem] sm:text-[0.5rem] md:text-[0.75rem] lg:text-[1rem] xl:text-[1.2rem]">
-                                Link awal harus diisi!
+                                {{ $message }}
                             </p>
                         @enderror
                     </div>
@@ -59,7 +59,7 @@
                             @endif
                             @error('Link')
                                 <p class="font-semibold text-red-600 pl-5 text-[0.3rem] sm:text-[0.5rem] md:text-[0.75rem] lg:text-[1rem] xl:text-[1.2rem]">
-                                    Link kustom harus diisi!
+                                    {{ $message }}
                                 </p>
                             @enderror
                         </div>

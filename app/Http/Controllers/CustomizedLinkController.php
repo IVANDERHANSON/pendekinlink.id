@@ -17,6 +17,10 @@ class CustomizedLinkController extends Controller
         $request->validate([
             'Link' => ['required', 'unique:'.CustomizedLink::class],
             'Source' => ['required']
+        ], [
+            'Link.required' => 'Link kustom harus diisi!',
+            'Link.unique' => 'Link kustom ini tidak tersedia',
+            'Source.required' => 'Link awal harus diisi!'
         ]);
 
         $source = $request->Source;
