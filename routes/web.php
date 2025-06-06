@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('shortenLink');
 });
 
 Route::get('/shorten-in-bulk', [CustomizedLinkController::class, 'getShortenInBulk']);
