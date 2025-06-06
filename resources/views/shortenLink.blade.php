@@ -14,13 +14,13 @@
     <x-navbar></x-navbar>
 
     @if (session('success'))
-        <div class="w-[80%] min-h-[80vh] mx-[10%] my-[10vh] flex justify-center items-center flex-col">
-            <p class="w-fit mb-3.5 text-[0.25rem] sm:text-[0.5rem] md:text-[0.75rem] lg:text-[1.25rem] xl:text-[1.75rem]"><span class="font-bold">Link</span> kamu <span class="font-bold">berhasil
-                    dikustom</span>!</p>
-            <a class="font-bold underline text-custom-blue text-shadow3 hover:opacity-80 text-[0.5rem] sm:text-[0.75rem] md:text-[1rem] lg:text-[1.5rem] xl:text-[2rem]"
-                href="{{ session('success') }}" target="_blank">{{ session('success') }}</a>
-            <div>
-                <button class="mt-7 button1 shadow-custom1 h-14 w-full text-[0.3rem] sm:text-[0.5rem] md:text-[0.75rem] lg:text-[1rem] xl:text-[1.2rem]" id="back">
+        <div class="w-[80%] min-h-[80vh] mx-[10%] my-[10vh] flex justify-center items-center text-size1">
+            <div class="h-fit mt-12 flex justify-center items-start flex-col">
+                <p class="w-fit mb-3.5"><span class="font-bold">Link</span> kamu <span class="font-bold">berhasil
+                        dikustom</span>!</p>
+                <a class="font-bold underline text-custom-blue text-shadow3 hover:opacity-80"
+                    href="{{ session('success') }}" target="_blank">{{ session('success') }}</a>
+                <button class="mt-7 button1 shadow-custom1 h-14 w-full" id="back">
                     Balik pendekin link!
                 </button>
             </div>
@@ -28,7 +28,7 @@
     @else
         <div class="flex w-[80%] min-h-[80vh] items-center justify-evenly mx-[10%] my-[10vh]">
             <div class="mt-12 h-fit flex-row justify-center">
-                <div class="text-shadow1 pb-14 font-semibold text-[1.5rem] leading-[1.5rem] sm:text-[1.75rem] sm:leading-[1.75rem] md:text-[2rem] md:leading-[2rem] lg:text-[2.5rem] lg:leading-[2.5rem] xl:text-[3rem] xl:leading-[3rem]">
+                <div class="text-shadow1 pb-14 font-semibold text-size3">
                     <p class="text-custom-blue">
                         Pendekin<span class="text-custom-grey"> & </span>kustom link
                     </p>
@@ -38,30 +38,30 @@
                     @csrf
                     <div class="flex-col">
                         @if (session('randomLink'))
-                        <input class="input1 shadow-custom1 w-full text-[0.3rem] sm:text-[0.5rem] md:text-[0.75rem] lg:text-[1rem] xl:text-[1.2rem]" placeholder="Link awal"
+                        <input class="input1 shadow-custom1 w-full text-size1" placeholder="Link awal"
                             name="Source" value="{{ session('oldSource') }}" id="Source1" />
                         @else
-                        <input class="input1 shadow-custom1 w-full text-[0.3rem] sm:text-[0.5rem] md:text-[0.75rem] lg:text-[1rem] xl:text-[1.2rem]" placeholder="Link awal"
+                        <input class="input1 shadow-custom1 w-full text-size1" placeholder="Link awal"
                             name="Source" value="{{ old('Source') }}" id="Source1" />
                         @endif
                         @error('Source')
-                            <p class="font-semibold text-red-600 pl-5 text-[0.3rem] sm:text-[0.5rem] md:text-[0.75rem] lg:text-[1rem] xl:text-[1.2rem]">
+                            <p class="font-semibold text-red-600 pl-5 text-size1">
                                 {{ $message }}
                             </p>
                         @enderror
                     </div>
                     <div class="flex items-start justify-between gap-4 pt-7">
-                        <p class="font-bold pt-3.5 text-[0.3rem] sm:text-[0.5rem] md:text-[0.75rem] lg:text-[1rem] xl:text-[1.2rem]">pendekinlink.id/</p>
+                        <p class="font-bold pt-3.5 text-size1">pendekinlink.id/</p>
                         <div class="w-full">
                             @if (session('randomLink'))
-                                <input class="input1 shadow-custom1 w-full text-[0.3rem] sm:text-[0.5rem] md:text-[0.75rem] lg:text-[1rem] xl:text-[1.2rem]" placeholder="Link kustom"
+                                <input class="input1 shadow-custom1 w-full text-size1" placeholder="Link kustom"
                                     name="Link" value="{{ session('randomLink') }}" />
                             @else
-                                <input class="input1 shadow-custom1 w-full text-[0.3rem] sm:text-[0.5rem] md:text-[0.75rem] lg:text-[1rem] xl:text-[1.2rem]" placeholder="Link kustom"
+                                <input class="input1 shadow-custom1 w-full text-size1" placeholder="Link kustom"
                                     name="Link" value="{{ old('Link') }}" />
                             @endif
                             @error('Link')
-                                <p class="font-semibold text-red-600 pl-5 text-[0.3rem] sm:text-[0.5rem] md:text-[0.75rem] lg:text-[1rem] xl:text-[1.2rem]">
+                                <p class="font-semibold text-red-600 pl-5 text-size1">
                                     {{ $message }}
                                 </p>
                             @enderror
@@ -74,7 +74,7 @@
 
 
                     <div class="flex pt-14">
-                        <button class="button1 shadow-custom1 h-14 w-full text-[0.3rem] sm:text-[0.5rem] md:text-[0.75rem] lg:text-[1rem] xl:text-[1.2rem]" type="submit">
+                        <button class="button1 shadow-custom1 h-14 w-full text-size1" type="submit">
                             Pendekin link!
                         </button>
                     </div>
@@ -83,7 +83,7 @@
                     @csrf
                     <input type="text" name="Source2" id="Source2" class="hidden">
                 </form>
-                <div class="w-full pt-14 text-center text-[0.3rem] sm:text-[0.5rem] md:text-[0.75rem] lg:text-[1rem] xl:text-[1.2rem]">
+                <div class="w-full pt-14 text-center text-size1">
                     <a href="#" class="font-bold underline hover:text-custom-lightgrey">Terms of Service</a>
                 </div>
             </div>
