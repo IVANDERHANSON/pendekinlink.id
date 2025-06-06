@@ -4,7 +4,7 @@
             Sekilas tentang <span class="text-custom-blue">pendekinlink.id</span>
         </p>
         <p class="mt-7 font-normal text-[0.3rem] sm:text-[0.5rem] md:text-[0.75rem] lg:text-[1rem] xl:text-[1.2rem]">
-            pendekinlink.id menawarkan fitur unggulan seperti kustomisasi link dan riwayat yang mudah digunakan dan
+            pendekinlink.id menawarkan fitur unggulan seperti kustomisasi link yang mudah digunakan dan
             gratis. Solusi praktis ini sangat bermanfaat bagi pelaku bisnis, pemasar digital, dan pengguna internet umum
             yang ingin menyederhanakan link untuk promosi, berbagi informasi, atau merapikan tampilan link dengan
             efisien.
