@@ -14,17 +14,15 @@
     <x-navbar></x-navbar>
 
     @if (session('success'))
-        <div class="h-screen flex justify-center items-center">
-            <div class="">
-                <p class="text-xl w-fit mb-3.5"><span class="font-bold">Link</span> kamu <span class="font-bold">berhasil
-                        dikustom</span>!</p>
-                <a class="text-2xl font-bold underline text-custom-blue text-shadow3 hover:opacity-80"
-                    href="{{ session('success') }}" target="_blank">{{ session('success') }}</a>
-                <div>
-                    <button class="mt-7 button1 shadow-custom1 h-20 w-full" id="back">
-                        Balik pendekin link!
-                    </button>
-                </div>
+        <div class="w-[80%] min-h-[80vh] mx-[10%] my-[10vh] flex justify-center items-center flex-col">
+            <p class="w-fit mb-3.5 text-[0.25rem] sm:text-[0.5rem] md:text-[0.75rem] lg:text-[1.25rem] xl:text-[1.75rem]"><span class="font-bold">Link</span> kamu <span class="font-bold">berhasil
+                    dikustom</span>!</p>
+            <a class="font-bold underline text-custom-blue text-shadow3 hover:opacity-80 text-[0.5rem] sm:text-[0.75rem] md:text-[1rem] lg:text-[1.5rem] xl:text-[2rem]"
+                href="{{ session('success') }}" target="_blank">{{ session('success') }}</a>
+            <div>
+                <button class="mt-7 button1 shadow-custom1 h-14 w-full text-[0.3rem] sm:text-[0.5rem] md:text-[0.75rem] lg:text-[1rem] xl:text-[1.2rem]" id="back">
+                    Balik pendekin link!
+                </button>
             </div>
         </div>
     @else
@@ -39,8 +37,13 @@
                 <form action="/store" method="POST">
                     @csrf
                     <div class="flex-col">
+                        @if (session('randomLink'))
                         <input class="input1 shadow-custom1 w-full text-[0.3rem] sm:text-[0.5rem] md:text-[0.75rem] lg:text-[1rem] xl:text-[1.2rem]" placeholder="Link awal"
-                            name="Source" value="{{ old('Source') }}" />
+                            name="Source" value="{{ session('oldSource') }}" id="Source1" />
+                        @else
+                        <input class="input1 shadow-custom1 w-full text-[0.3rem] sm:text-[0.5rem] md:text-[0.75rem] lg:text-[1rem] xl:text-[1.2rem]" placeholder="Link awal"
+                            name="Source" value="{{ old('Source') }}" id="Source1" />
+                        @endif
                         @error('Source')
                             <p class="font-semibold text-red-600 pl-5 text-[0.3rem] sm:text-[0.5rem] md:text-[0.75rem] lg:text-[1rem] xl:text-[1.2rem]">
                                 {{ $message }}
@@ -78,6 +81,7 @@
                 </form>
                 <form action="/generate-random-link" method="POST" id="generateRandomLinkForm">
                     @csrf
+                    <input type="text" name="Source2" id="Source2" class="hidden">
                 </form>
                 <div class="w-full pt-14 text-center text-[0.3rem] sm:text-[0.5rem] md:text-[0.75rem] lg:text-[1rem] xl:text-[1.2rem]">
                     <a href="#" class="font-bold underline hover:text-custom-lightgrey">Terms of Service</a>
@@ -88,23 +92,22 @@
 
     <x-footer></x-footer>
 
-    <script>
-        feather.replace()
-    </script>
-
     @if (session('success'))
         <script>
             document.getElementById('back').addEventListener('click', function() {
                 window.location.href = '/';
             });
         </script>
-    @endif
+    @else
+        <script>
+            feather.replace()
 
-    <script>
-        document.getElementById('dropdownButton').addEventListener('click', function() {
-            document.getElementById('generateRandomLinkForm').submit();
-        });
-    </script>
+            document.getElementById('dropdownButton').addEventListener('click', function() {
+                document.getElementById('Source2').value = document.getElementById('Source1').value
+                document.getElementById('generateRandomLinkForm').submit();
+            });
+        </script>
+    @endif
 </body>
 
 </html>

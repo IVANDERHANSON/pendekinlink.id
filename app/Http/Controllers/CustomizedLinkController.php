@@ -92,11 +92,15 @@ class CustomizedLinkController extends Controller
         return abort(404);
     }
 
-    public function generateRandomLink() {
+    public function generateRandomLink(Request $request) {
         do {
             $randomLink = Str::random(10);
         } while(CustomizedLink::where('Link', $randomLink)->exists());
-        return redirect()->back()->with('randomLink', $randomLink);
+        
+        return redirect()->back()->with([
+            'randomLink' => $randomLink,
+            'oldSource' => $request->Source2
+        ]);
     }
 
     public function getHistory() {
