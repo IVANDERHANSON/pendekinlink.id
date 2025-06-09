@@ -1,6 +1,6 @@
 <div class="flex flex-col-reverse md:flex-row bg-custom-black text-custom-white">
     <div class="w-full rounded-lg border-3 border-t-0 md:border-t-3 border-custom-black bg-custom-grey px-12 md:px-24 py-12">
-        <p class="text-shadow2 font-semibold whitespace-nowrap md:whitespace-normal text-size2">
+        <p class="text-shadow2 font-semibold text-size2">
             Sekilas tentang <span class="text-custom-blue">pendekinlink.id</span>
         </p>
         <p class="mt-7 font-normal text-size1">
@@ -17,7 +17,7 @@
     <div class="flex justify-center items-center w-full md:w-fit rounded-lg border-3 border-x-3 md:border-x-0 border-custom-black bg-custom-grey px-12 md:px-24 py-12">
         <form action="/store-contact-us" method="POST" class="w-full">
             @csrf
-            <p class="text-shadow2 font-semibold whitespace-nowrap md:whitespace-normal text-size2">
+            <p class="text-shadow2 font-semibold text-size2">
                 Ada <span class="text-custom-blue">masalah</span> atau pengen
                 <span class="text-custom-blue">tanya²</span>?
             </p>
