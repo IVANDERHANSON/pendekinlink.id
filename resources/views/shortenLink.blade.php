@@ -26,8 +26,8 @@
             </div>
         </div>
     @else
-        <div class="flex w-[80%] min-h-[80vh] items-center justify-evenly mx-[10%] my-[10vh]">
-            <div class="mt-12 h-fit flex-row justify-center">
+        <div class="flex w-[80%] min-h-[80vh] items-center justify-center mx-[10%] my-[10vh]">
+            <div class="mt-12 h-fit">
                 <div class="text-shadow1 pb-14 font-semibold text-size3">
                     <p class="text-custom-blue">
                         Pendekin<span class="text-custom-grey"> & </span>kustom link
@@ -36,22 +36,22 @@
                 </div>
                 <form action="/store" method="POST">
                     @csrf
-                    <div class="flex-col">
-                        @if (session('randomLink'))
+                    
+                    @if (session('randomLink'))
                         <input class="input1 shadow-custom1 w-full text-size1" placeholder="Link awal"
                             name="Source" value="{{ session('oldSource') }}" id="Source1" />
-                        @else
+                    @else
                         <input class="input1 shadow-custom1 w-full text-size1" placeholder="Link awal"
                             name="Source" value="{{ old('Source') }}" id="Source1" />
-                        @endif
-                        @error('Source')
-                            <p class="font-semibold text-red-600 pl-5 text-size1">
-                                {{ $message }}
-                            </p>
-                        @enderror
-                    </div>
-                    <div class="flex items-start justify-between gap-4 pt-7">
-                        <p class="font-bold pt-3.5 text-size1">pendekinlink.id/</p>
+                    @endif
+                    @error('Source')
+                        <p class="font-semibold text-red-600 pl-5 text-size1">
+                            {{ $message }}
+                        </p>
+                    @enderror
+                    
+                    <div class="flex items-center justify-between gap-4 pt-7">
+                        <p class="font-bold text-size1">pendekinlink.id/</p>
                         <div class="w-full">
                             @if (session('randomLink'))
                                 <input class="input1 shadow-custom1 w-full text-size1" placeholder="Link kustom"
@@ -68,12 +68,14 @@
                         </div>
                         <button id="dropdownButton"
                             class="h-14 px-[15px] shadow-custom1 rounded-full border-3 bg-custom-grey  border-custom-black text-custom-white hover:bg-opacity-85 hover:border-custom-grey"
-                            type="button" title="Generate random link"><i data-feather="refresh-cw"
-                                class="text-custom-white h-full w-5"></i></button>
+                            type="button" title="Generate random link"
+                        >
+                            <i data-feather="refresh-cw" class="text-custom-white h-full w-5"></i>
+                        </button>
                     </div>
 
 
-                    <div class="flex pt-14">
+                    <div class="pt-14">
                         <button class="button1 shadow-custom1 h-14 w-full text-size1" type="submit">
                             Pendekin link!
                         </button>
