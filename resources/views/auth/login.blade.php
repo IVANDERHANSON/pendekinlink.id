@@ -11,11 +11,11 @@
     <!-- navbar -->
     <x-navbar></x-navbar>
 
-    <div class="flex min-h-screen items-center justify-evenly">
-      <div class="mt-14 h-fit flex-row justify-center">
-        <div class="text-shadow1 pb-14 text-6xl font-semibold">
+    <div class="w-[80%] min-h-[80vh] mx-[10%] my-[10vh] flex items-center justify-evenly">
+      <div class="mt-12 h-fit flex-row justify-center">
+        <div class="text-shadow1 pb-14 font-semibold text-size3">
           <p class="-mb-1 text-custom-blue">
-            Masuk<span class="text-custom-grey"> pake</span>
+            Login<span class="text-custom-grey"> pake</span>
           </p>
           <p class="-mb-1 text-custom-blue">
             akun<span class="text-custom-grey"> kamu!</span>
@@ -27,8 +27,8 @@
             <div class="max-w-[440px] flex-row w-full">
             <input
                 type="email"
-                class="input1 w-full shadow-custom1 min-[560px]:w-[440px]"
-                placeholder="masukin email kamu"
+                class="input1 w-full shadow-custom1 min-[560px]:w-[440px] text-size1"
+                placeholder="Email"
                 name="email"
                 value="{{ old('email') }}"
             />
@@ -39,8 +39,8 @@
             @enderror
             <input
                 type="password"
-                class="input1 mt-7 w-full shadow-custom1 min-[560px]:w-[440px]"
-                placeholder="masukin password kamu"
+                class="input1 mt-7 w-full shadow-custom1 min-[560px]:w-[440px] text-size1"
+                placeholder="Password"
                 name="password"
                 value="{{ old('password') }}"
             />
@@ -51,11 +51,11 @@
             @enderror
             </div>
             <div class="flex pt-14">
-              <button class="button1 h-20 w-full shadow-custom1" type="submit">Masuk!</button>
+              <button class="button1 h-14 w-full shadow-custom1 text-size1" type="submit">Login!</button>
             </div>
         </form>
 
-        <div class="w-full pt-14 text-center">
+        <div class="w-full pt-14 text-center text-size1">
           Belum punya akun?
           <a href="{{ route('register') }}" class="font-bold underline hover:text-custom-lightgrey"
             >Buat disini yuk</a
