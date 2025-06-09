@@ -10,8 +10,8 @@
   <body>
     <x-navbar></x-navbar>
 
-    <div class="w-[80%] min-h-[80vh] mx-[10%] my-[10vh] flex items-center justify-evenly">
-      <div class="mt-12 h-fit flex-row justify-center">
+    <div class="w-[80%] min-h-[80vh] mx-[10%] my-[10vh] flex items-center justify-center">
+      <div class="mt-12 h-fit max-w-[440px] w-full">
         <div class="text-shadow1 pb-14 font-semibold text-size3">
           <p class="-mb-1 text-custom-blue text-center">
             Buat akun
@@ -20,46 +20,44 @@
         <form method="POST" action="{{ route('register') }}">
             @csrf
             
-            <div class="max-w-[440px] flex-row">
-              <input
-                  type="email"
-                  class="input1 w-full shadow-custom1 text-size1"
-                  placeholder="Email"
-                  name="email"
-                  value="{{ old('email') }}"
-              />
-              @error('email')
-                  <p class="font-semibold text-red-600 w-full ml-5 text-size1">
-                      {{ $message }}
-                  </p>
-              @enderror
-              
-              <input
-                  type="password"
-                  class="input1 mt-7 w-full shadow-custom1 text-size1"
-                  placeholder="Password"
-                  name="password"
-                  value="{{ old('password') }}"
-              />
-              @error('password')
-                  <p class="font-semibold text-red-600 w-full ml-5 text-size1">
-                      {{ $message }}
-                  </p>
-              @enderror
+            <input
+                type="email"
+                class="input1 w-full shadow-custom1 text-size1"
+                placeholder="Email"
+                name="email"
+                value="{{ old('email') }}"
+            />
+            @error('email')
+                <p class="font-semibold text-red-600 w-full ml-5 text-size1">
+                    {{ $message }}
+                </p>
+            @enderror
+            
+            <input
+                type="password"
+                class="input1 mt-7 w-full shadow-custom1 text-size1"
+                placeholder="Password"
+                name="password"
+                value="{{ old('password') }}"
+            />
+            @error('password')
+                <p class="font-semibold text-red-600 w-full ml-5 text-size1">
+                    {{ $message }}
+                </p>
+            @enderror
 
-              <input
-                  type="password"
-                  class="input1 mt-7 w-full shadow-custom1 text-size1"
-                  placeholder="Confirm Password"
-                  name="password_confirmation"
-                  value="{{ old('password_confirmation') }}"
-              />
-              @error('password_confirmation')
-                  <p class="font-semibold text-red-600 w-full ml-5 text-size1">
-                      {{ $message }}
-                  </p>
-              @enderror
-            </div>
+            <input
+                type="password"
+                class="input1 mt-7 w-full shadow-custom1 text-size1"
+                placeholder="Confirm Password"
+                name="password_confirmation"
+                value="{{ old('password_confirmation') }}"
+            />
+            @error('password_confirmation')
+                <p class="font-semibold text-red-600 w-full ml-5 text-size1">
+                    {{ $message }}
+                </p>
+            @enderror
 
             <div class="flex pt-14">
               <button class="button1 h-14 w-full shadow-custom1 text-size1" type="submit">Register</button>
