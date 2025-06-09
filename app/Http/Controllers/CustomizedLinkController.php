@@ -19,7 +19,7 @@ class CustomizedLinkController extends Controller
             'Source' => ['required']
         ], [
             'Link.required' => 'Link kustom harus diisi!',
-            'Link.unique' => 'Link kustom ini tidak tersedia',
+            'Link.unique' => 'Link kustom ini tidak tersedia!',
             'Source.required' => 'Link awal harus diisi!'
         ]);
 
