@@ -13,15 +13,13 @@
     <div class="w-[80%] min-h-[80vh] mx-[10%] my-[10vh] flex items-center justify-evenly">
       <div class="mt-12 h-fit flex-row justify-center">
         <div class="text-shadow1 pb-14 font-semibold text-size3">
-          <p class="-mb-1 text-custom-grey">
-            Ayo<span class="text-custom-blue"> buat</span>
-          </p>
-          <p class="-mb-1 text-custom-blue">
-            akun<span class="text-custom-grey"> kamu!</span>
+          <p class="-mb-1 text-custom-blue text-center">
+            Buat akun
           </p>
         </div>
         <form method="POST" action="{{ route('register') }}">
             @csrf
+            
             <div class="max-w-[440px] flex-row">
               <input
                   type="email"
@@ -61,18 +59,17 @@
                       {{ $message }}
                   </p>
               @enderror
-
             </div>
 
             <div class="flex pt-14">
-            <button class="button1 h-14 w-full shadow-custom1 text-size1" type="submit">Register</button>
+              <button class="button1 h-14 w-full shadow-custom1 text-size1" type="submit">Register</button>
             </div>
         </form>
 
         <div class="w-full pt-14 text-center text-size1">
-          Udah punya akun?
+          Sudah punya akun?
           <a href="{{ route('login') }}" class="font-bold underline hover:text-custom-lightgrey"
-            >Yuk masuk disini</a
+            >Ayo login disini</a
           >!
         </div>
       </div>
